@@ -13,6 +13,10 @@ extends Camera2D
 var mapX = 12032 # map dimensions x
 var mapY = 6768 # map dimensions y
 
+func _ready():
+	position.x = mapX/2
+	position.y = mapY/2
+
 func _process(delta):
 	var inputX = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) # get input x (left/right)
 	var inputY = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up")) # get input y (up/down)
@@ -24,10 +28,7 @@ func _process(delta):
 	else:
 		XSPEED = max(XSPEED/2,SPEEDMIN) # if button is not being held decay
 	
-	if targetX < get_viewport().size.x/2: 
-		targetX = get_viewport().size.x/2
-	elif targetX > mapX-get_viewport().size.x/2:
-		targetX = mapX-get_viewport().size.x/2
+	targetX = clamp(targetX, get_viewport().size.x/2, mapX-get_viewport().size.x/2)
 	position.x = targetX
 	
 	#Set Camera Y Position
@@ -36,10 +37,7 @@ func _process(delta):
 		YSPEED = min(YSPEED+0.1,SPEEDMAX)
 	else:
 		YSPEED = max(YSPEED/2,SPEEDMIN)
-		
-	if targetY < get_viewport().size.y/2:
-		targetY = get_viewport().size.y/2
-	elif targetY > mapY-get_viewport().size.y/2:
-		targetY = mapY-get_viewport().size.y/2
+	
+	targetY = clamp(targetY, get_viewport().size.y/2, mapY-get_viewport().size.y/2)
 	position.y = targetY
 	

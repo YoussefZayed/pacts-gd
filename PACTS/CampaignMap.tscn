@@ -23,4 +23,5 @@ format = 2
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(128, 91)
 script = ExtResource("2_8an40")
