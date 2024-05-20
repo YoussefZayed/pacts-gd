@@ -27,7 +27,6 @@ func _ready():
 func _process(delta):
 	var inputX = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) # get input x (left/right)
 	var inputY = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up")) # get input y (up/down)
-	print((Input.is_action_pressed("Shifting")))
 	
 	ZOOM_MIN = min(float(get_viewport().size.x)/mapX,float(get_viewport().size.y)/mapY) # set minimum zoom based on ratio of map size to viewport size
 	ZOOM_MAX = max((mapX/float(get_viewport().size.x))/2,(mapY/float(get_viewport().size.y))/2) # set maximum zoom based on ratio of map size to viewport size
