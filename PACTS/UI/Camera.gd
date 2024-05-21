@@ -27,7 +27,6 @@ func _ready():
 	@warning_ignore("integer_division") # ignore warning
 	position.y = mapY/2 # set inital position as the middle of the map y
 	ZOOM_MIN = min(1920/float(mapX),1080/float(mapY)) # set minimum zoom based on ratio of map size to viewport size
-	print(ZOOM_MIN)
 	zoom.x = ZOOM_MIN
 	zoom.y = ZOOM_MIN
 
