@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://UI/Camera.gd" id="2_8an40"]
 [ext_resource type="Texture2D" uid="uid://bfhpju2mimesk" path="res://Hex.png" id="2_bvqib"]
 [ext_resource type="Texture2D" uid="uid://c5oo218s1nysq" path="res://Hex Sheet.png" id="4_r1jq1"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_jxsrd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgc0c"]
 resource_name = "Hex Tile"
@@ -38,8 +39,6 @@ tile_size = Vector2i(332, 384)
 uv_clipping = true
 sources/0 = SubResource("TileSetAtlasSource_hgc0c")
 sources/4 = SubResource("TileSetAtlasSource_1r6wh")
-
-[sub_resource type="Theme" id="Theme_vbabw"]
 
 [node name="CampaignMap" type="Node2D"]
 script = ExtResource("1_nftt5")
@@ -75,10 +74,8 @@ layer_2/tile_data = PackedInt32Array(655363, 196612, 0, 524295, 196612, 1, 52429
 [node name="Corner Margin" type="MarginContainer" parent="UI"]
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_jxsrd")
 
 [node name="GridContainer" type="GridContainer" parent="UI/Corner Margin"]
 layout_mode = 2
@@ -98,14 +95,17 @@ layout_mode = 2
 
 [node name="Return to main menu" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
-text = "Return to main menu"
+theme = ExtResource("5_jxsrd")
+text = " Return to main menu "
 
 [node name="Command Submission" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
-text = "Command Submission"
+theme = ExtResource("5_jxsrd")
+text = " Command Submission "
 
 [node name="Options" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_jxsrd")
 text = "Options"
 
 [node name="Label Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer"]
@@ -117,7 +117,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Zoom Label" type="Label" parent="UI/Corner Margin/GridContainer/Label Margin"]
 layout_mode = 2
-theme = SubResource("Theme_vbabw")
+theme = ExtResource("5_jxsrd")
 theme_type_variation = &"HeaderLarge"
 text = "Zoom"
 

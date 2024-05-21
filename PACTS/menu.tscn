@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://csgf1n0oitmou"]
+[gd_scene load_steps=10 format=3 uid="uid://csgf1n0oitmou"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_twuq2"]
 [ext_resource type="Texture2D" uid="uid://u44cpch5n41u" path="res://UI ASSETS/PACTS MENU TEMP.png" id="2_sb6dx"]
 [ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_cxq77"]
 [ext_resource type="Script" path="res://MenuCamera.gd" id="3_lm8sg"]
 [ext_resource type="Texture2D" uid="uid://cl5yon6a1kwsv" path="res://UI ASSETS/ARMCO logo.png" id="5_4o3sv"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_mr1e6"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_5sau5"]
 
 [sub_resource type="Gradient" id="Gradient_j06lm"]
@@ -34,11 +35,6 @@ offset_bottom = 2500.0
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_b70ew")
 
-[node name="PlanetaryAndAerialCombatTabletopSimulator" type="Sprite2D" parent="."]
-position = Vector2(740, 96)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_cxq77")
-
 [node name="Logo grid" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 50.0
@@ -59,36 +55,52 @@ texture = ExtResource("5_4o3sv")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 2000.0
-offset_top = 100.0
-offset_right = 2200.0
-offset_bottom = 201.0
-scale = Vector2(2, 2)
+[node name="Menu Margins" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 1900.0
+offset_right = 2500.0
+offset_bottom = 184.0
+theme = ExtResource("5_mr1e6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu Margins"]
 layout_mode = 2
 
-[node name="Campaign Select" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Campaign Select" type="Button" parent="Menu Margins/VBoxContainer"]
 layout_mode = 2
-text = "Campaign Select
+theme = ExtResource("5_mr1e6")
+text = " Campaign Select 
 "
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="Menu Margins/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_mr1e6")
 text = "Options
 "
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="Menu Margins/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_mr1e6")
 text = "Exit Game"
+
+[node name="Logo Margins" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 150.0
+theme = ExtResource("5_mr1e6")
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Logo Margins"]
+layout_mode = 2
+texture = ExtResource("3_cxq77")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(1250, 714)
 zoom = Vector2(0.77, 0.77)
 script = ExtResource("3_lm8sg")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
+[connection signal="pressed" from="Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu Margins/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
