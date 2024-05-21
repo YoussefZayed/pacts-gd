@@ -8,11 +8,11 @@
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_mr1e6"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_5sau5"]
 
-[sub_resource type="Gradient" id="Gradient_j06lm"]
+[sub_resource type="Gradient" id="Gradient_ojw40"]
 colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
-gradient = SubResource("Gradient_j06lm")
+gradient = SubResource("Gradient_ojw40")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -27,7 +27,7 @@ script = ExtResource("1_twuq2")
 position = Vector2(1250, 714)
 texture = ExtResource("2_sb6dx")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GradientTextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 2500.0
 offset_right = 2756.0

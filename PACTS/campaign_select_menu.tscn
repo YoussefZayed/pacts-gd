@@ -1,19 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://6fek4ta17jj0"]
+[gd_scene load_steps=10 format=3 uid="uid://6fek4ta17jj0"]
 
 [ext_resource type="Script" path="res://campaign_select_menu.gd" id="1_abx1n"]
 [ext_resource type="Texture2D" uid="uid://cj6omuqwdv017" path="res://hill-74571.jpg" id="2_b75lx"]
 [ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_86mht"]
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="4_2fe78"]
-[ext_resource type="Texture2D" uid="uid://cl5yon6a1kwsv" path="res://UI ASSETS/ARMCO logo.png" id="4_bgrww"]
 [ext_resource type="Texture2D" uid="uid://d06o4fifpft6r" path="res://icon.svg" id="5_sgdhf"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_7uuk3"]
+[ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://UI ASSETS/ARMCO logo mini.png" id="6_482qf"]
 [ext_resource type="Script" path="res://Campaign_Select_Menu_Camera.gd" id="6_bxqp8"]
 
-[sub_resource type="Gradient" id="Gradient_j06lm"]
-colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
-gradient = SubResource("Gradient_j06lm")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk6xj"]
 
 [node name="Campaign_Select_Menu" type="Control"]
 layout_mode = 3
@@ -24,47 +20,54 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_abx1n")
 
-[node name="Hill-74571" type="Sprite2D" parent="."]
-position = Vector2(2000, 1124)
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 4000.0
+offset_bottom = 2248.0
+theme = ExtResource("4_2fe78")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pk6xj")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
 texture = ExtResource("2_b75lx")
 
-[node name="GradientTextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 3996.0
-offset_right = 4252.0
-offset_bottom = 4000.0
-rotation = 1.5708
-texture = SubResource("GradientTexture1D_b70ew")
+[node name="Main Margin" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="PlanetaryAndAerialCombatTabletopSimulator" type="Sprite2D" parent="."]
-position = Vector2(740, 96)
-scale = Vector2(0.75, 0.75)
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Main Margin"]
+layout_mode = 2
+
+[node name="Title Rectangle" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer"]
+layout_mode = 2
 texture = ExtResource("3_86mht")
+stretch_mode = 3
 
-[node name="Main Margin" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_top = 200.0
-offset_right = 4000.0
-offset_bottom = 1700.0
+[node name="Main Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main Margin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 alignment = 1
 
-[node name="Left Panel Margin" type="MarginContainer" parent="Main Margin/HBoxContainer"]
+[node name="Left Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer"]
 layout_mode = 2
 
-[node name="Left Menu Panel" type="PanelContainer" parent="Main Margin/HBoxContainer/Left Panel Margin"]
+[node name="Left Menu Panel" type="PanelContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin"]
 layout_mode = 2
 
-[node name="Left Menu Margins" type="MarginContainer" parent="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel"]
+[node name="Left Menu Margins" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins"]
 layout_mode = 2
 
-[node name="Join Campaign" type="Button" parent="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
+[node name="Join Campaign" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 text = "   Join Campaign   
@@ -72,84 +75,93 @@ text = "   Join Campaign
 icon = ExtResource("5_sgdhf")
 alignment = 0
 
-[node name="Return to main menu" type="Button" parent="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
+[node name="Return to main menu" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 text = "   Return to main menu   "
 icon = ExtResource("5_sgdhf")
 alignment = 0
 
-[node name="Right Panel Margin" type="MarginContainer" parent="Main Margin/HBoxContainer"]
+[node name="Right Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right Menu Panel" type="PanelContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin"]
 layout_mode = 2
 
-[node name="Right Menu Panel" type="PanelContainer" parent="Main Margin/HBoxContainer/Right Panel Margin"]
+[node name="Right Menu Margins" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel"]
 layout_mode = 2
 
-[node name="Right Menu Margins" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel"]
-layout_mode = 2
-
-[node name="All campaigns grid" type="GridContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins"]
+[node name="All campaigns grid" type="GridContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins"]
 layout_mode = 2
 columns = 4
 
-[node name="Campaign Name Margin" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="Campaign Name Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("4_2fe78")
 
-[node name="Campaign Name" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Campaign Name Margin"]
+[node name="Campaign Name" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Campaign Name Margin"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderLarge"
 text = "Campaign Name"
 horizontal_alignment = 1
 
-[node name="Active Units Margin" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="Active Units Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 
-[node name="Active Units" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Active Units Margin"]
+[node name="Active Units" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Active Units Margin"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderLarge"
 text = "Active Units"
 horizontal_alignment = 1
 
-[node name="Start Date Margin" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="B&S SD" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Active Units Margin"]
+layout_mode = 2
+theme = ExtResource("4_2fe78")
+theme_type_variation = &"HeaderMedium"
+text = "22/05/2024"
+horizontal_alignment = 1
+
+[node name="Start Date Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 
-[node name="Start Date" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Start Date Margin"]
+[node name="Start Date" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Start Date Margin"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderLarge"
 text = "Start Date"
 horizontal_alignment = 1
 
-[node name="Round Number Margin" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="Round Number Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 
-[node name="Round Number" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Round Number Margin"]
+[node name="Round Number" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Round Number Margin"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderLarge"
 text = "Round Number"
 horizontal_alignment = 1
 
-[node name="B&S Button Margin" type="MarginContainer" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="B&S Button Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Blood and Sand" type="Button" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/B&S Button Margin"]
+[node name="Blood and Sand" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/B&S Button Margin"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_2fe78")
 text = "   Blood and Sand   "
 icon = ExtResource("5_sgdhf")
 
-[node name="B&S AU" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="B&S AU" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderMedium"
@@ -157,38 +169,26 @@ text = "100
 "
 horizontal_alignment = 1
 
-[node name="B&S SD" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
-layout_mode = 2
-theme = ExtResource("4_2fe78")
-theme_type_variation = &"HeaderMedium"
-text = "22/05/2024"
-horizontal_alignment = 1
-
-[node name="B&S RN" type="Label" parent="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+[node name="B&S RN" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
 theme_type_variation = &"HeaderMedium"
 text = "1"
 horizontal_alignment = 1
 
-[node name="Logo grid" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 1950.0
-offset_right = 1054.0
-offset_bottom = 2450.0
-scale = Vector2(0.5, 0.5)
+[node name="Logo grid" type="GridContainer" parent="PanelContainer/Main Margin/VBoxContainer"]
+layout_mode = 2
 columns = 2
 
-[node name="Guardian" type="TextureRect" parent="Logo grid"]
+[node name="ARMCO" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer/Logo grid"]
+layout_mode = 2
+texture = ExtResource("6_482qf")
+stretch_mode = 5
+
+[node name="Guardian" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer/Logo grid"]
 layout_mode = 2
 texture = ExtResource("6_7uuk3")
-stretch_mode = 4
-
-[node name="ARMCO" type="TextureRect" parent="Logo grid"]
-layout_mode = 2
-texture = ExtResource("4_bgrww")
-expand_mode = 2
+expand_mode = 3
 stretch_mode = 5
 
 [node name="Campaign_Select_Menu_Camera" type="Camera2D" parent="."]
@@ -196,6 +196,6 @@ position = Vector2(2000, 1124)
 zoom = Vector2(0.77, 0.77)
 script = ExtResource("6_bxqp8")
 
-[connection signal="pressed" from="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
-[connection signal="pressed" from="Main Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="pressed" from="Main Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/B&S Button Margin/Blood and Sand" to="." method="_on_blood_and_sand_pressed"]
+[connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
+[connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/B&S Button Margin/Blood and Sand" to="." method="_on_blood_and_sand_pressed"]

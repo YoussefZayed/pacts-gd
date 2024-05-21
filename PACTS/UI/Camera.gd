@@ -49,7 +49,7 @@ func _process(delta):
 		xspeedTarget = min(xspeedTarget+0.1,SPEEDMAX) # if button is being held accelerate
 	else:
 		xspeedTarget = max(xspeedTarget/2,SPEEDMIN) # if button is not being held decay
-	XSPEED = min(xspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))), SPEEDMAX) # shift to camera sprint
+	XSPEED = xspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))) # shift to camera sprint
 	
 	position.x = clamp(targetX, (get_viewport().size.x/2)/zoom.x, mapX-(get_viewport().size.x/2)/zoom.x) # push target position to display
 	
@@ -59,7 +59,7 @@ func _process(delta):
 		yspeedTarget = min(yspeedTarget+0.1,SPEEDMAX) # if button is being held accelerate
 	else:
 		yspeedTarget = max(yspeedTarget/2,SPEEDMIN) # if button is not being held decay
-	YSPEED = min(yspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))), SPEEDMAX) # shift to camera sprint
+	YSPEED = yspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))) # shift to camera sprint
 	
 	position.y = clamp(targetY, (get_viewport().size.y/2)/zoom.y, mapY-(get_viewport().size.y/2)/zoom.y) # push target position to display
 
