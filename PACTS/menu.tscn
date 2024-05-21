@@ -44,6 +44,11 @@ position = Vector2(96, 1332)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_4o3sv")
 
+[node name="GuardianCircle" type="Sprite2D" parent="."]
+position = Vector2(246, 1332)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_5sau5")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 2000.0
@@ -69,15 +74,10 @@ text = "Options
 layout_mode = 2
 text = "Exit Game"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(1250, 714)
 zoom = Vector2(0.77, 0.77)
 script = ExtResource("3_lm8sg")
-
-[node name="GuardianCircle" type="Sprite2D" parent="."]
-position = Vector2(246, 1332)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_5sau5")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

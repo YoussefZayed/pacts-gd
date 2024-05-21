@@ -1,9 +1,111 @@
-[gd_scene format=3 uid="uid://bt843sahfldrd"]
+[gd_scene load_steps=9 format=3 uid="uid://6fek4ta17jj0"]
 
-[node name="Campaign Select Menu" type="Control"]
+[ext_resource type="Script" path="res://campaign_select_menu.gd" id="1_abx1n"]
+[ext_resource type="Texture2D" uid="uid://cj6omuqwdv017" path="res://hill-74571.jpg" id="2_b75lx"]
+[ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_86mht"]
+[ext_resource type="Texture2D" uid="uid://beu3m8ns6lfcu" path="res://UI ASSETS/ARMCO logo.png" id="4_bgrww"]
+[ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_7uuk3"]
+[ext_resource type="Script" path="res://Campaign_Select_Menu_Camera.gd" id="6_bxqp8"]
+
+[sub_resource type="Gradient" id="Gradient_j06lm"]
+colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
+gradient = SubResource("Gradient_j06lm")
+
+[node name="Campaign_Select_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_abx1n")
+
+[node name="Hill-74571" type="Sprite2D" parent="."]
+position = Vector2(2000, 1124)
+texture = ExtResource("2_b75lx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3996.0
+offset_right = 4252.0
+offset_bottom = 4000.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_b70ew")
+
+[node name="PlanetaryAndAerialCombatTabletopSimulator" type="Sprite2D" parent="."]
+position = Vector2(740, 96)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_86mht")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 768.0
+offset_bottom = 1856.0
+color = Color(1, 1, 1, 0.498039)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 818.0
+offset_top = 256.0
+offset_right = 3744.0
+offset_bottom = 1856.0
+color = Color(1, 1, 1, 0.498039)
+
+[node name="ArmcoLogo" type="Sprite2D" parent="."]
+position = Vector2(96, 2152)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_bgrww")
+
+[node name="GuardianCircle" type="Sprite2D" parent="."]
+position = Vector2(246, 2152)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_7uuk3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 306.0
+offset_right = 512.0
+offset_bottom = 407.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Join Campaign" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join Campaign
+"
+
+[node name="Return to main menu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 868.0
+offset_top = 306.0
+offset_right = 2281.0
+offset_bottom = 407.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Blood and Sand" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Blood and Sand"
+alignment = 0
+
+[node name="Campaign_Select_Menu_Camera" type="Camera2D" parent="."]
+position = Vector2(2000, 1124)
+zoom = Vector2(0.77, 0.77)
+script = ExtResource("6_bxqp8")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Blood and Sand" to="." method="_on_blood_and_sand_pressed"]
