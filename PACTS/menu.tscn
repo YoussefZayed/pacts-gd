@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://u44cpch5n41u" path="res://UI ASSETS/PACTS MENU TEMP.png" id="2_sb6dx"]
 [ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_cxq77"]
 [ext_resource type="Script" path="res://MenuCamera.gd" id="3_lm8sg"]
-[ext_resource type="Texture2D" uid="uid://cl5yon6a1kwsv" path="res://UI ASSETS/ARMCO logo.png" id="5_4o3sv"]
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_mr1e6"]
+[ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://UI ASSETS/ARMCO logo mini.png" id="6_0wp72"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_5sau5"]
 
 [sub_resource type="Gradient" id="Gradient_ojw40"]
@@ -35,76 +35,87 @@ offset_bottom = 2500.0
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_b70ew")
 
-[node name="Logo grid" type="GridContainer" parent="."]
+[node name="MainMenuCamera" type="Camera2D" parent="."]
+position = Vector2(1250, 714)
+zoom = Vector2(0.77, 0.77)
+script = ExtResource("3_lm8sg")
+
+[node name="Overall Margins" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 1250.0
-offset_right = 1054.0
-offset_bottom = 1750.0
-scale = Vector2(0.3, 0.3)
-columns = 2
+offset_right = 2500.0
+offset_bottom = 1428.0
+theme = ExtResource("5_mr1e6")
 
-[node name="Guardian" type="TextureRect" parent="Logo grid"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Overall Margins"]
 layout_mode = 2
-texture = ExtResource("6_5sau5")
-stretch_mode = 4
 
-[node name="ARMCO" type="TextureRect" parent="Logo grid"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Overall Margins/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_4o3sv")
+size_flags_vertical = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Overall Margins/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+texture = ExtResource("3_cxq77")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Menu Margins" type="MarginContainer" parent="."]
+[node name="Horizontal Spacer" type="Control" parent="Overall Margins/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-offset_left = 1900.0
-offset_right = 2500.0
-offset_bottom = 184.0
+size_flags_horizontal = 3
+
+[node name="Menu Margins" type="MarginContainer" parent="Overall Margins/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("5_mr1e6")
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu Margins"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Campaign Select" type="Button" parent="Menu Margins/VBoxContainer"]
+[node name="Campaign Select" type="Button" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_mr1e6")
 text = " Campaign Select 
 "
 
-[node name="Options" type="Button" parent="Menu Margins/VBoxContainer"]
+[node name="Options" type="Button" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_mr1e6")
 text = "Options
 "
 
-[node name="Exit" type="Button" parent="Menu Margins/VBoxContainer"]
+[node name="Exit" type="Button" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_mr1e6")
 text = "Exit Game"
 
-[node name="Logo Margins" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 150.0
-theme = ExtResource("5_mr1e6")
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="TextureRect2" type="TextureRect" parent="Logo Margins"]
+[node name="Vertical Spacer" type="Control" parent="Overall Margins/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_cxq77")
-expand_mode = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Logo grid" type="GridContainer" parent="Overall Margins/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="ARMCO" type="TextureRect" parent="Overall Margins/VBoxContainer/Logo grid"]
+layout_mode = 2
+texture = ExtResource("6_0wp72")
 stretch_mode = 5
 
-[node name="MainMenuCamera" type="Camera2D" parent="."]
-position = Vector2(1250, 714)
-zoom = Vector2(0.77, 0.77)
-script = ExtResource("3_lm8sg")
+[node name="Guardian" type="TextureRect" parent="Overall Margins/VBoxContainer/Logo grid"]
+layout_mode = 2
+texture = ExtResource("6_5sau5")
+expand_mode = 3
+stretch_mode = 5
 
-[connection signal="pressed" from="Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
-[connection signal="pressed" from="Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Menu Margins/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
+[connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

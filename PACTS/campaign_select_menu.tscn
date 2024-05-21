@@ -119,13 +119,6 @@ theme_type_variation = &"HeaderLarge"
 text = "Active Units"
 horizontal_alignment = 1
 
-[node name="B&S SD" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Active Units Margin"]
-layout_mode = 2
-theme = ExtResource("4_2fe78")
-theme_type_variation = &"HeaderMedium"
-text = "22/05/2024"
-horizontal_alignment = 1
-
 [node name="Start Date Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
@@ -169,6 +162,13 @@ text = "100
 "
 horizontal_alignment = 1
 
+[node name="B&S SD" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
+layout_mode = 2
+theme = ExtResource("4_2fe78")
+theme_type_variation = &"HeaderMedium"
+text = "22/05/2024"
+horizontal_alignment = 1
+
 [node name="B&S RN" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 theme = ExtResource("4_2fe78")
@@ -193,7 +193,7 @@ stretch_mode = 5
 
 [node name="Campaign_Select_Menu_Camera" type="Camera2D" parent="."]
 position = Vector2(2000, 1124)
-zoom = Vector2(0.77, 0.77)
+zoom = Vector2(0.48, 0.48)
 script = ExtResource("6_bxqp8")
 
 [connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
