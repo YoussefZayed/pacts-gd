@@ -5,7 +5,7 @@ func _on_campaign_select_pressed():
 
 
 func _on_options_pressed():
-	get_tree().change_scene_to_file("res://CampaignMap.tscn") # change to options menu once created
+	pass
 
 
 func _on_exit_pressed():

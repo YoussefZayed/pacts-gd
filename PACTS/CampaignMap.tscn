@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cncitocpqh5gn"]
+[gd_scene load_steps=10 format=3 uid="uid://cncitocpqh5gn"]
 
 [ext_resource type="Texture2D" uid="uid://c7sisvdalgv70" path="res://Blood_and_sand_Breif_Map.jpg" id="1_1li5s"]
 [ext_resource type="Script" path="res://CampaignMapData.gd" id="1_nftt5"]
@@ -39,6 +39,8 @@ uv_clipping = true
 sources/0 = SubResource("TileSetAtlasSource_hgc0c")
 sources/4 = SubResource("TileSetAtlasSource_1r6wh")
 
+[sub_resource type="Theme" id="Theme_vbabw"]
+
 [node name="CampaignMap" type="Node2D"]
 script = ExtResource("1_nftt5")
 
@@ -70,6 +72,57 @@ layer_2/tile_data = PackedInt32Array(655363, 196612, 0, 524295, 196612, 1, 52429
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Corner Margin" type="MarginContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="UI/Corner Margin"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Corner Margin/GridContainer"]
+layout_mode = 2
+
+[node name="Button Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin"]
+layout_mode = 2
+
+[node name="Return to main menu" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="Command Submission" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
+layout_mode = 2
+text = "Command Submission"
+
+[node name="Options" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Label Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Zoom Label" type="Label" parent="UI/Corner Margin/GridContainer/Label Margin"]
+layout_mode = 2
+theme = SubResource("Theme_vbabw")
+theme_type_variation = &"HeaderLarge"
+text = "Zoom"
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(128, 91)
 script = ExtResource("2_8an40")
+
+[connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]

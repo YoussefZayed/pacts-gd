@@ -38,6 +38,7 @@ func _process(delta):
 	zoom.y = lerp(zoom.y, zoom.y*zoomFactor, ZOOM_SPEED*delta) # set zoom y
 	zoom.x = clamp(zoom.x, ZOOM_MIN, ZOOM_MAX) # keep zoom within calculated limits
 	zoom.y = clamp(zoom.y, ZOOM_MIN, ZOOM_MAX) # keep zoom within calculated limits
+	$"../UI/Corner Margin/GridContainer/Label Margin/Zoom Label".text = str("Zoom: ", round(zoom.x*100)/100, "x")
 	
 	if not zooming: # if not zooming
 		zoomFactor = 1.0 # don't change zoom

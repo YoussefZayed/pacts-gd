@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://6fek4ta17jj0"]
+[gd_scene load_steps=17 format=3 uid="uid://6fek4ta17jj0"]
 
 [ext_resource type="Script" path="res://campaign_select_menu.gd" id="1_abx1n"]
 [ext_resource type="Texture2D" uid="uid://cj6omuqwdv017" path="res://hill-74571.jpg" id="2_b75lx"]
 [ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_86mht"]
-[ext_resource type="Texture2D" uid="uid://beu3m8ns6lfcu" path="res://UI ASSETS/ARMCO logo.png" id="4_bgrww"]
+[ext_resource type="Texture2D" uid="uid://cl5yon6a1kwsv" path="res://UI ASSETS/ARMCO logo.png" id="4_bgrww"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://UI ASSETS/Guardian Circle.png" id="6_7uuk3"]
 [ext_resource type="Script" path="res://Campaign_Select_Menu_Camera.gd" id="6_bxqp8"]
 
@@ -12,6 +12,22 @@ colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
 gradient = SubResource("Gradient_j06lm")
+
+[sub_resource type="Theme" id="Theme_47s3i"]
+
+[sub_resource type="Theme" id="Theme_5403j"]
+
+[sub_resource type="Theme" id="Theme_j1uhb"]
+
+[sub_resource type="Theme" id="Theme_cfs8s"]
+
+[sub_resource type="Theme" id="Theme_nng8w"]
+
+[sub_resource type="Theme" id="Theme_krmko"]
+
+[sub_resource type="Theme" id="Theme_h8hb2"]
+
+[sub_resource type="Theme" id="Theme_ha07i"]
 
 [node name="Campaign_Select_Menu" type="Control"]
 layout_mode = 3
@@ -55,16 +71,6 @@ offset_right = 3744.0
 offset_bottom = 1856.0
 color = Color(1, 1, 1, 0.498039)
 
-[node name="ArmcoLogo" type="Sprite2D" parent="."]
-position = Vector2(96, 2152)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_bgrww")
-
-[node name="GuardianCircle" type="Sprite2D" parent="."]
-position = Vector2(246, 2152)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_7uuk3")
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 306.0
@@ -85,21 +91,88 @@ text = "Join Campaign
 layout_mode = 2
 text = "Return to main menu"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 0
+[node name="Logo grid" type="GridContainer" parent="."]
+offset_left = 50.0
+offset_top = 1950.0
+offset_right = 1054.0
+offset_bottom = 2450.0
+scale = Vector2(0.5, 0.5)
+columns = 2
+
+[node name="Guardian" type="TextureRect" parent="Logo grid"]
+layout_mode = 2
+texture = ExtResource("6_7uuk3")
+stretch_mode = 4
+
+[node name="ARMCO" type="TextureRect" parent="Logo grid"]
+layout_mode = 2
+texture = ExtResource("4_bgrww")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="All campaigns grid" type="GridContainer" parent="."]
 offset_left = 868.0
 offset_top = 306.0
 offset_right = 2281.0
-offset_bottom = 407.0
+offset_bottom = 1006.0
 scale = Vector2(2, 2)
+columns = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="Campaign Name" type="Label" parent="All campaigns grid"]
 layout_mode = 2
+theme = SubResource("Theme_47s3i")
+theme_type_variation = &"HeaderLarge"
+text = "Campaign Name"
+horizontal_alignment = 1
 
-[node name="Blood and Sand" type="Button" parent="MarginContainer2/VBoxContainer"]
+[node name="Active Units" type="Label" parent="All campaigns grid"]
 layout_mode = 2
+theme = SubResource("Theme_5403j")
+theme_type_variation = &"HeaderLarge"
+text = "     Active Units     "
+horizontal_alignment = 1
+
+[node name="Start Date" type="Label" parent="All campaigns grid"]
+layout_mode = 2
+theme = SubResource("Theme_j1uhb")
+theme_type_variation = &"HeaderLarge"
+text = "     Start Date     "
+horizontal_alignment = 1
+
+[node name="Round Number" type="Label" parent="All campaigns grid"]
+layout_mode = 2
+theme = SubResource("Theme_cfs8s")
+theme_type_variation = &"HeaderLarge"
+text = "     Round Number     "
+horizontal_alignment = 1
+
+[node name="Blood and Sand" type="Button" parent="All campaigns grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_nng8w")
 text = "Blood and Sand"
-alignment = 0
+
+[node name="B&S AU" type="Label" parent="All campaigns grid"]
+layout_mode = 2
+theme = SubResource("Theme_krmko")
+theme_type_variation = &"HeaderMedium"
+text = "100
+"
+horizontal_alignment = 1
+
+[node name="B&S SD" type="Label" parent="All campaigns grid"]
+layout_mode = 2
+theme = SubResource("Theme_h8hb2")
+theme_type_variation = &"HeaderMedium"
+text = "22/05/2024"
+horizontal_alignment = 1
+
+[node name="B&S RN" type="Label" parent="All campaigns grid"]
+layout_mode = 2
+theme = SubResource("Theme_ha07i")
+theme_type_variation = &"HeaderMedium"
+text = "1"
+horizontal_alignment = 1
 
 [node name="Campaign_Select_Menu_Camera" type="Camera2D" parent="."]
 position = Vector2(2000, 1124)
@@ -108,4 +181,4 @@ script = ExtResource("6_bxqp8")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/Blood and Sand" to="." method="_on_blood_and_sand_pressed"]
+[connection signal="pressed" from="All campaigns grid/Blood and Sand" to="." method="_on_blood_and_sand_pressed"]
