@@ -25,8 +25,8 @@ func _ready():
 	position.y = mapY/2 # set inital position as the middle of the map y
 
 func _process(delta):
-	var inputX = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) # get input x (left/right)
-	var inputY = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up")) # get input y (up/down)
+	var inputX = int((Input.is_action_pressed("ui_right") or Input.is_action_pressed("PressD"))) - int(Input.is_action_pressed("ui_left")or Input.is_action_pressed("PressA")) # get input x (left/right)
+	var inputY = int(Input.is_action_pressed("ui_down") or Input.is_action_pressed("PressS")) - int(Input.is_action_pressed("ui_up") or Input.is_action_pressed("PressW")) # get input y (up/down)
 	
 	ZOOM_MIN = min(float(get_viewport().size.x)/mapX,float(get_viewport().size.y)/mapY) # set minimum zoom based on ratio of map size to viewport size
 	ZOOM_MAX = max((mapX/float(get_viewport().size.x))/2,(mapY/float(get_viewport().size.y))/2) # set maximum zoom based on ratio of map size to viewport size
