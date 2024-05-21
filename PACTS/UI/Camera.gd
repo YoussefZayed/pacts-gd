@@ -5,7 +5,9 @@ var mapY = 6768 # map dimensions y
 
 #Camera Control
 @export var XSPEED = 20.0 # speed in the x direction
+@export var xspeedTarget = 20.0 # speed in the x direction
 @export var YSPEED = 20.0 # speed in the y direction
+@export var yspeedTarget = 20.0 # speed in the y direction
 @export var SPEEDMIN = 20.0 # minimum pan speed
 @export var SPEEDMAX = 40.0 # maximum pan speed
 @export var ZOOM_SPEED = 20.0 # zoom speed
@@ -41,18 +43,20 @@ func _process(delta):
 	#Set Camera X Position
 	var targetX = int(lerp(position.x, position.x + inputX*XSPEED*sqrt(zoom.x), XSPEED*delta)) # set target x position
 	if inputX != 0: # check to see if button is being pressed
-		XSPEED = min(XSPEED+0.1,SPEEDMAX) # if button is being held accelerate
+		xspeedTarget = min(xspeedTarget+0.1,SPEEDMAX) # if button is being held accelerate
 	else:
-		XSPEED = max(XSPEED/2,SPEEDMIN) # if button is not being held decay
+		xspeedTarget = max(xspeedTarget/2,SPEEDMIN) # if button is not being held decay
+	XSPEED = min(xspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))), SPEEDMAX) # shift to camera sprint
 	
 	position.x = clamp(targetX, (get_viewport().size.x/2)/zoom.x, mapX-(get_viewport().size.x/2)/zoom.x) # push target position to display
 	
 	#Set Camera Y Position
 	var targetY = int(lerp(position.y, position.y + inputY*YSPEED*sqrt(zoom.y), YSPEED*delta)) # set target y position
 	if inputY != 0: # check to see if button is being pressed
-		YSPEED = min(YSPEED+0.1,SPEEDMAX) # if button is being held accelerate
+		yspeedTarget = min(yspeedTarget+0.1,SPEEDMAX) # if button is being held accelerate
 	else:
-		YSPEED = max(YSPEED/2,SPEEDMIN) # if button is not being held decay
+		yspeedTarget = max(yspeedTarget/2,SPEEDMIN) # if button is not being held decay
+	YSPEED = min(yspeedTarget*(1+0.5*int(Input.is_key_pressed(KEY_SHIFT))), SPEEDMAX) # shift to camera sprint
 	
 	position.y = clamp(targetY, (get_viewport().size.y/2)/zoom.y, mapY-(get_viewport().size.y/2)/zoom.y) # push target position to display
 
