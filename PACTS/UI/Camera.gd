@@ -25,6 +25,8 @@ func _ready():
 	position.x = mapX/2 # set inital position as the middle of the map x
 	@warning_ignore("integer_division") # ignore warning
 	position.y = mapY/2 # set inital position as the middle of the map y
+	zoom.x = ZOOM_MIN
+	zoom.y = ZOOM_MIN
 
 func _process(delta):
 	var inputX = int((Input.is_action_pressed("ui_right") or Input.is_action_pressed("PressD"))) - int(Input.is_action_pressed("ui_left")or Input.is_action_pressed("PressA")) # get input x (left/right)
@@ -77,3 +79,10 @@ func _input(event):
 				zoomPos = get_global_mouse_position()
 		else:
 			zooming = false
+	
+	if event is InputEventKey:
+		if event.is_pressed():
+			if event.is_action("ui_home"):
+				zoom.x = ZOOM_MIN
+				zoom.y = ZOOM_MIN
+	
