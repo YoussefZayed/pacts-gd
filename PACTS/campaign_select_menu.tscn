@@ -172,6 +172,7 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="Logo grid" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 1950.0
 offset_right = 1054.0

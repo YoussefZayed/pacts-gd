@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cncitocpqh5gn"]
+[gd_scene load_steps=11 format=3 uid="uid://cncitocpqh5gn"]
 
 [ext_resource type="Texture2D" uid="uid://c7sisvdalgv70" path="res://Blood_and_sand_Breif_Map.jpg" id="1_1li5s"]
 [ext_resource type="Script" path="res://CampaignMapData.gd" id="1_nftt5"]
@@ -39,6 +39,8 @@ tile_size = Vector2i(332, 384)
 uv_clipping = true
 sources/0 = SubResource("TileSetAtlasSource_hgc0c")
 sources/4 = SubResource("TileSetAtlasSource_1r6wh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o12cc"]
 
 [node name="CampaignMap" type="Node2D"]
 script = ExtResource("1_nftt5")
@@ -82,6 +84,7 @@ layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/Corner Margin/GridContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o12cc")
 
 [node name="Button Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer/PanelContainer"]
 layout_mode = 2
