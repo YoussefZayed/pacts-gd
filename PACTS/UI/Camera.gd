@@ -1,7 +1,7 @@
 extends Camera2D
 
-var mapX = 12032 # map dimensions x
-var mapY = 6768 # map dimensions y
+var mapX = 12032*2 # map dimensions x
+var mapY = 6768*2 # map dimensions y
 
 #Camera Control
 @export var XSPEED = 20.0 # speed in the x direction
@@ -34,7 +34,7 @@ func _process(delta):
 	var inputX = int((Input.is_action_pressed("ui_right") or Input.is_action_pressed("PressD"))) - int(Input.is_action_pressed("ui_left")or Input.is_action_pressed("PressA")) # get input x (left/right)
 	var inputY = int(Input.is_action_pressed("ui_down") or Input.is_action_pressed("PressS")) - int(Input.is_action_pressed("ui_up") or Input.is_action_pressed("PressW")) # get input y (up/down)
 	
-	ZOOM_MAX = max((mapX/float(get_viewport().size.x))/2,(mapY/float(get_viewport().size.y))/2) # set maximum zoom based on ratio of map size to viewport size
+	ZOOM_MAX = max((mapX/float(get_viewport().size.x))/2,(mapY/float(get_viewport().size.y))/2)/2 # set maximum zoom based on ratio of map size to viewport size
 	
 	zoom.x = lerp(zoom.x, zoom.x*zoomFactor, ZOOM_SPEED*delta) # set zoom x
 	zoom.y = lerp(zoom.y, zoom.y*zoomFactor, ZOOM_SPEED*delta) # set zoom y

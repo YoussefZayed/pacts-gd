@@ -9,6 +9,9 @@ var speed = 0
 var range = 0
 var weightClass = 0
 var stealth = false
+var deployed = false
+var rendered = false
+var createable = true
 
 func takeDamage(damage):
 	var damageDealt = damage - armor
