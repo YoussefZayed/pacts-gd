@@ -1,5 +1,8 @@
 class_name Units
 
+var unitName = "Placeholder"
+var unitClass = "Placeholder"
+var unitCommander = "Discord Username"
 var locationX = 0
 var locationY = 0
 var direction = "north"
