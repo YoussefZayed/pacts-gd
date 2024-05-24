@@ -37,54 +37,226 @@ theme_override_constants/margin_bottom = 50
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer"]
+[node name="Overall Unit Creation Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="UnitClassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="Class Select Dropdown Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
 
-[node name="InfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="UnitClassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="MechanizedInfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="InfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="MechanizedInfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="ArmorSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="ArmorSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="ArtillerySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="ArtillerySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="MechSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="MechSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="AirSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="AirSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="OrbitalSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/HBoxContainer"]
+[node name="OrbitalSubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+
+[node name="Unit Form Common Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
+layout_mode = 2
+
+[node name="Unit Owner Form Margins" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Unit Owner Form Vbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins"]
+layout_mode = 2
+
+[node name="Unit Status Dropdown" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Unit Status Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown"]
+layout_mode = 2
+text = "Unit Status:"
+
+[node name="Status Dropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Horizontal Spacer 1" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Unit Owner Discord Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit Owner Discord Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner Discord Container"]
+layout_mode = 2
+text = "Discord Username:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner Discord Container"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+placeholder_text = "Discord username name here"
+
+[node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Unit Owner ARMCO Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit Owner ARMCO Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner ARMCO Container"]
+layout_mode = 2
+text = "ARMCO server Username:
+"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner ARMCO Container"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+placeholder_text = "Username Here"
+
+[node name="Unit Name Form Margins" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Unit Name Form Hbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit Name Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Unit Name Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Name Container"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Unit Name:"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Name Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 2
+ratio = 10.0
+alignment_horizontal = 0
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Name Container/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+placeholder_text = "Unit name Here"
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="Unit Callsign Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Unit Callsign Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Callsign Container"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Unit Callsign:
+"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Callsign Container"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+ratio = 10.0
+alignment_horizontal = 0
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Callsign Container/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+placeholder_text = "Unit callsign here"
+
+[node name="Unit Backstory Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Unit Backstory Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/Unit Backstory Container"]
+layout_mode = 2
+text = "Unit Backstory:"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/Unit Backstory Container"]
+custom_minimum_size = Vector2(1000, 230)
+layout_mode = 2
+ratio = 7.5
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/Unit Backstory Container/AspectRatioContainer"]
+layout_mode = 2
+placeholder_text = "Unit backstory here"
+wrap_mode = 1
+
+[node name="Infantry Common Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Infantry Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/MarginContainer"]
+layout_mode = 2
+text = "Class: Infantry"
+
+[node name="Regular Infantry Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Regular Infantry Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/MarginContainer"]
+layout_mode = 2
+text = "Subclass: Regular Infantry"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1250, 714)

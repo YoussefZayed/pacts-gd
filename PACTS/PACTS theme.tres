@@ -17,6 +17,7 @@ Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_nagvh")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_nagvh")
+LineEdit/fonts/font = ExtResource("1_nagvh")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20

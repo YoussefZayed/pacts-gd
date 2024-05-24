@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csgf1n0oitmou"]
+[gd_scene load_steps=14 format=3 uid="uid://csgf1n0oitmou"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_twuq2"]
 [ext_resource type="Texture2D" uid="uid://u44cpch5n41u" path="res://Game Assets/UI ASSETS/PACTS MENU TEMP.png" id="2_sb6dx"]
@@ -7,12 +7,19 @@
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_mr1e6"]
 [ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_0wp72"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="6_5sau5"]
+[ext_resource type="FontFile" uid="uid://477jr77dy64o" path="res://Game Assets/Fonts/ETHNOCEN.TTF" id="8_eeqmc"]
 
 [sub_resource type="Gradient" id="Gradient_ojw40"]
 colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
 gradient = SubResource("Gradient_ojw40")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_827yf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axcvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nemd"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -100,21 +107,50 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="Logo grid" type="GridContainer" parent="Overall Margins/VBoxContainer"]
+[node name="Bottom Hbox" type="HBoxContainer" parent="Overall Margins/VBoxContainer"]
+layout_mode = 2
+
+[node name="Logo grid" type="GridContainer" parent="Overall Margins/VBoxContainer/Bottom Hbox"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 2
 
-[node name="ARMCO" type="TextureRect" parent="Overall Margins/VBoxContainer/Logo grid"]
+[node name="ARMCO" type="TextureRect" parent="Overall Margins/VBoxContainer/Bottom Hbox/Logo grid"]
 layout_mode = 2
 texture = ExtResource("6_0wp72")
 stretch_mode = 5
 
-[node name="Guardian" type="TextureRect" parent="Overall Margins/VBoxContainer/Logo grid"]
+[node name="Guardian" type="TextureRect" parent="Overall Margins/VBoxContainer/Bottom Hbox/Logo grid"]
 layout_mode = 2
 texture = ExtResource("6_5sau5")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Bottom Spacer" type="Control" parent="Overall Margins/VBoxContainer/Bottom Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Overall Margins/VBoxContainer/Bottom Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme = ExtResource("5_mr1e6")
+ratio = 4.0
+
+[node name="TextEdit" type="TextEdit" parent="Overall Margins/VBoxContainer/Bottom Hbox/AspectRatioContainer"]
+layout_mode = 2
+theme = ExtResource("5_mr1e6")
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_eeqmc")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxEmpty_827yf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_axcvb")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_8nemd")
+text = "\"A day may come when the courage of men fails, when we forget our friends and forsake all bonds of fellowship. But it is not this day!\""
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+wrap_mode = 1
 
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]

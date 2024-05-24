@@ -8,84 +8,62 @@ var Artillery_Subclasses = ["Light Artillery", "Heavy Artillery", "Self Propelle
 var Mech_Subclasses = ["Light Mech", "Medium Mech", "Heavy Mech"]
 var Air_Subclasses = ["Fighter", "VTOL Heavy Troop Airlift", "VTOL Multi-Purpose Airlift", "VTOL Heavy Lift","Heavy Aerospace Transport", "Bomber"]
 var Orbital_Subclasses = ["Corvette", "Destroyer", "Cruiser", "Battleship"]
+var Unit_Status = ["Active", "Inactive", "MIA", "Dead"]
+
+@onready var UnitClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown"
+@onready var Infantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown"
+@onready var MechanizedInfantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown"
+@onready var Armor_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArmorSubclassDropdown"
+@onready var Artillery_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArtillerySubclassDropdown"
+@onready var Mech_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechSubclassDropdown"
+@onready var Air_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/AirSubclassDropdown"
+@onready var Orbital_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/OrbitalSubclassDropdown"
+@onready var Status_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown/Status Dropdown"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for n in len(UnitClasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/UnitClassDropdown.add_item(UnitClasses[n])
+		UnitClass_Path.add_item(UnitClasses[n])
 	for n in len(Infantry_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.add_item(Infantry_Subclasses[n])
+		Infantry_Path.add_item(Infantry_Subclasses[n])
 	for n in len(Mechanized_Infantry_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.add_item(Mechanized_Infantry_Subclasses[n])
+		MechanizedInfantry_Path.add_item(Mechanized_Infantry_Subclasses[n])
 	for n in len(Armor_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.add_item(Armor_Subclasses[n])
+		Armor_Path.add_item(Armor_Subclasses[n])
 	for n in len(Artillery_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.add_item(Artillery_Subclasses[n])
+		Artillery_Path.add_item(Artillery_Subclasses[n])
 	for n in len(Mech_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.add_item(Mech_Subclasses[n])
+		Mech_Path.add_item(Mech_Subclasses[n])
 	for n in len(Air_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.add_item(Air_Subclasses[n])
+		Air_Path.add_item(Air_Subclasses[n])
 	for n in len(Orbital_Subclasses):
-		$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.add_item(Orbital_Subclasses[n])
+		Orbital_Path.add_item(Orbital_Subclasses[n])
+	for n in len(Unit_Status):
+		Status_Path.add_item(Unit_Status[n])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#ideally I want to move this to only trigger when the unit class dropdown is changed.
-	match $PanelContainer/MarginContainer/PanelContainer/HBoxContainer/UnitClassDropdown.selected:
+	Infantry_Path.visible  = false
+	MechanizedInfantry_Path.visible = false
+	Armor_Path.visible = false
+	Artillery_Path.visible = false
+	Mech_Path.visible = false
+	Air_Path.visible = false
+	Orbital_Path.visible = false
+	match UnitClass_Path.selected:
 		0:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			Infantry_Path.visible  = true
 		1:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			MechanizedInfantry_Path.visible = true
 		2:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			Armor_Path.visible = true
 		3:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			Mech_Path.visible = true
 		4:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			Air_Path.visible = false
 		5:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = true
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = false
+			Air_Path.visible = true
 		6:
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/InfantrySubclassDropdown.visible  = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechanizedInfantrySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArmorSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/ArtillerySubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/MechSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/AirSubclassDropdown.visible = false
-			$PanelContainer/MarginContainer/PanelContainer/HBoxContainer/OrbitalSubclassDropdown.visible = true
+			Orbital_Path.visible = true
