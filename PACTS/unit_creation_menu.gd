@@ -1,5 +1,6 @@
 extends Control
 
+# Set up arrays for all types of unit
 var UnitClasses = ["Infantry", "Mechanized Infantry", "Armor", "Artillery", "Mech", "Air", "Orbital"]
 var Infantry_Subclasses = ["Regular Infantry", "Power Armored Infantry", "Combat Medical Unit", "Irregular Unit", "Special Forces","Combat Engineers", "Sappers"]
 var Mechanized_Infantry_Subclasses = ["Mechanized Infantry"]
@@ -10,8 +11,15 @@ var Air_Subclasses = ["Fighter", "VTOL Heavy Troop Airlift", "VTOL Multi-Purpose
 var Orbital_Subclasses = ["Corvette", "Destroyer", "Cruiser", "Battleship"]
 var Unit_Status = ["Active", "Inactive", "MIA", "Dead"]
 
+# Get Paths for all dropdown buttons
 @onready var UnitClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown"
 @onready var InfantryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown"
+@onready var MechanizedIfantryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown"
+@onready var AmorClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArmorSubclassDropdown"
+@onready var ArtilleryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArtillerySubclassDropdown"
+@onready var MechClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechSubclassDropdown"
+@onready var AirClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/AirSubclassDropdown"
+@onready var OrbitalClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/OrbitalSubclassDropdown"
 
 @onready var Infantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown"
 @onready var MechanizedInfantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown"
@@ -23,8 +31,10 @@ var Unit_Status = ["Active", "Inactive", "MIA", "Dead"]
 @onready var Status_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown/Status Dropdown"
 
 @onready var Infantry_common_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"
+@onready var MechanizedInfantry_commonm_path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox"
 
-@onready var RegularInfantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"
+@onready var RegularInfantryForm_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"
+@onready var MechanizedInfantryForm_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox/Mechanized Infantry Vbox"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,7 +66,10 @@ func _on_unit_class_dropdown_item_selected(index):
 	#ideally I want to move this to only trigger when the unit class dropdown is changed.
 	Infantry_Path.visible  = false
 	Infantry_common_Path.visible = false
+	
 	MechanizedInfantry_Path.visible = false
+	MechanizedInfantry_commonm_path.visible = false
+	
 	Armor_Path.visible = false
 	Artillery_Path.visible = false
 	Mech_Path.visible = false
@@ -69,6 +82,7 @@ func _on_unit_class_dropdown_item_selected(index):
 			Infantry_common_Path.visible = true
 		1:
 			MechanizedInfantry_Path.visible = true
+			MechanizedInfantry_commonm_path.visible = true
 		2:
 			Armor_Path.visible = true
 		3:
@@ -81,11 +95,20 @@ func _on_unit_class_dropdown_item_selected(index):
 			Orbital_Path.visible = true
 
 func _on_infantry_subclass_dropdown_item_selected(index):
-	RegularInfantry_Path.visible = false
+	RegularInfantryForm_Path.visible = false
 	
 	match InfantryClass_Path.selected:
 		0:
-			RegularInfantry_Path.visible  = true
+			RegularInfantryForm_Path.visible  = true
+
+func _on_mechanized_infantry_subclass_dropdown_item_selected(index):
+	MechanizedInfantryForm_Path.visible = false
+	
+	match MechanizedInfantry_Path.selected:
+		0:
+			MechanizedInfantryForm_Path.visible  = true
+
+
 
 
 func _on_export_unit_to_file_button_pressed():
@@ -98,3 +121,6 @@ func _on_export_unit_to_text_pressed():
 
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn")
+
+
+

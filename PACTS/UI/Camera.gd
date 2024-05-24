@@ -27,8 +27,8 @@ func _ready():
 	@warning_ignore("integer_division") # ignore warning
 	position.y = mapY/2 # set inital position as the middle of the map y
 	ZOOM_MIN = min(1920/float(mapX),1080/float(mapY)) # set minimum zoom based on ratio of map size to viewport size
-	zoom.x = ZOOM_MIN
-	zoom.y = ZOOM_MIN
+	zoom.x = ZOOM_MIN # set default view to zoomed out
+	zoom.y = ZOOM_MIN # set default view to zoomed out
 
 func _process(delta):
 	var inputX = int((Input.is_action_pressed("ui_right") or Input.is_action_pressed("PressD"))) - int(Input.is_action_pressed("ui_left")or Input.is_action_pressed("PressA")) # get input x (left/right)
@@ -40,13 +40,13 @@ func _process(delta):
 	zoom.y = lerp(zoom.y, zoom.y*zoomFactor, ZOOM_SPEED*delta) # set zoom y
 	zoom.x = clamp(zoom.x, ZOOM_MIN, ZOOM_MAX) # keep zoom within calculated limits
 	zoom.y = clamp(zoom.y, ZOOM_MIN, ZOOM_MAX) # keep zoom within calculated limits
-	$"../UI/Corner Margin/GridContainer/Label Margin/Zoom Label".text = str("Zoom: ", round(zoom.x*100)/100, "x")
+	$"../UI/Corner Margin/GridContainer/Label Margin/Zoom Label".text = str("Zoom: ", round(zoom.x*100)/100, "x") # set the on screen zoom indicator to show current zoom level
 	
 	
 	if not zooming: # if not zooming
 		zoomFactor = 1.0 # don't change zoom
 	
-	current_SPEEDMAX = SPEEDMAX/zoom.x
+	current_SPEEDMAX = SPEEDMAX/zoom.x # adjust maximum speed based on zoom factor
 	
 	#Set Camera X Position
 	var targetX = int(lerp(position.x, position.x + inputX*XSPEED/sqrt(zoom.x), XSPEED*delta)) # set target x position
@@ -74,7 +74,7 @@ func _input(event):
 	if abs(zoomPos.y-get_global_mouse_position().y)>ZOOM_MARGIN:
 		zoomFactor = 1.0
 	
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton: # zoom in and out using the scroll wheel
 		if event.is_pressed():
 			zooming = true
 			if event.is_action("WheelDown"):
@@ -86,7 +86,7 @@ func _input(event):
 		else:
 			zooming = false
 	
-	if event is InputEventKey:
+	if event is InputEventKey: # if the home key is pressed revert to zoomed out state
 		if event.is_pressed():
 			if event.is_action("ui_home"):
 				zoom.x = ZOOM_MIN

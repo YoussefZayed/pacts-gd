@@ -1,6 +1,6 @@
 extends Control
 
-var rng = RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new() # set up random number generator
 var welcomeMessage = [
 "May the Force be with you.",
 "You either die a hero or live long enough to see yourself become the villain.",
@@ -35,13 +35,14 @@ var welcomeMessage = [
 "Greetings",
 "Sand rats..."
 ]
+# create vector of possible welcome messages
 
 func _ready():
-	var ran_num = rng.randf_range(0, len(welcomeMessage))
-	$"Overall Margins/VBoxContainer/Bottom Hbox/AspectRatioContainer/TextEdit".text = welcomeMessage[ran_num]
+	var ran_num = rng.randf_range(0, len(welcomeMessage)) # select random welcome message
+	$"Overall Margins/VBoxContainer/Bottom Hbox/AspectRatioContainer/TextEdit".text = welcomeMessage[ran_num] # display welcome message in text
 
 func _on_campaign_select_pressed():
-	get_tree().change_scene_to_file("res://campaign_select_menu.tscn") # change to campaign select menu once created
+	get_tree().change_scene_to_file("res://campaign_select_menu.tscn") # change to campaign select menu once selected
 
 
 func _on_options_pressed():
@@ -49,8 +50,8 @@ func _on_options_pressed():
 
 
 func _on_unit_creator_pressed():
-	get_tree().change_scene_to_file("res://unit_creation_menu.tscn")
+	get_tree().change_scene_to_file("res://unit_creation_menu.tscn") # change to unit creation scene once selected
 
 
 func _on_exit_pressed():
-	get_tree().quit()
+	get_tree().quit() # exit game

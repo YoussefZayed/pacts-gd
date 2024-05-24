@@ -1,7 +1,9 @@
 class_name RegularInfantry
 
+# create infantry class, from which subclasses can be derived
 extends Infantry
 
+# set up class specific varaiables
 var Primary_Equipment_1 = "Empty"
 var Primary_Equipment_2 = "Empty"
 var Primary_Equipment_3 = "Empty"
@@ -12,11 +14,10 @@ var Secondary_Equipment_3 = "Empty"
 var Secondary_Equipment_4 = "Empty"
 
 # Class Constructor
-func _init(forceStrengthPass := 5, armorPass := 0, speedPass := 1, rangePass := 1, weightClassPass := 1):
-		forceStrength = forceStrengthPass
-		armor = armorPass
-		speed = speedPass
-		range = rangePass
-		weightClass = weightClassPass
-		
+func _init():
+		forceStrength = 5
+		armor = 0
+		speed = 1
+		range = 1
+		weightClass = 1
 

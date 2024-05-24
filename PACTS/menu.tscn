@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Menu.gd" id="1_twuq2"]
 [ext_resource type="Texture2D" uid="uid://u44cpch5n41u" path="res://Game Assets/UI ASSETS/PACTS MENU TEMP.png" id="2_sb6dx"]
 [ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://Game Assets/UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_cxq77"]
-[ext_resource type="Script" path="res://MenuCamera.gd" id="3_lm8sg"]
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_mr1e6"]
 [ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_0wp72"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="6_5sau5"]
@@ -14,6 +13,11 @@ colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b70ew"]
 gradient = SubResource("Gradient_ojw40")
+
+[sub_resource type="GDScript" id="GDScript_358db"]
+script/source = "extends Camera2D
+
+"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_827yf"]
 
@@ -45,7 +49,7 @@ texture = SubResource("GradientTexture1D_b70ew")
 [node name="MainMenuCamera" type="Camera2D" parent="."]
 position = Vector2(1250, 714)
 zoom = Vector2(0.77, 0.77)
-script = ExtResource("3_lm8sg")
+script = SubResource("GDScript_358db")
 
 [node name="Overall Margins" type="MarginContainer" parent="."]
 layout_mode = 0

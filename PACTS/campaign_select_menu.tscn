@@ -7,9 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://d06o4fifpft6r" path="res://icon.svg" id="5_sgdhf"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="6_7uuk3"]
 [ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_482qf"]
-[ext_resource type="Script" path="res://Campaign_Select_Menu_Camera.gd" id="6_bxqp8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk6xj"]
+
+[sub_resource type="GDScript" id="GDScript_ctba3"]
+script/source = "extends Camera2D
+"
 
 [node name="Campaign_Select_Menu" type="Control"]
 layout_mode = 3
@@ -194,7 +197,7 @@ stretch_mode = 5
 [node name="Campaign_Select_Menu_Camera" type="Camera2D" parent="."]
 position = Vector2(2000, 1124)
 zoom = Vector2(0.48, 0.48)
-script = ExtResource("6_bxqp8")
+script = SubResource("GDScript_ctba3")
 
 [connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
 [connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
