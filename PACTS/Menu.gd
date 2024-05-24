@@ -31,7 +31,9 @@ var welcomeMessage = [
 "If I must fall, I will rise each time a better man.",
 "10 spears go to battle and 9 shatter… did war forge the 10th or did it refuse to break?",
 "It's the next one... Always the next one",
-"Life before Death, Strength before Weakness and Journey before Destination"
+"Life before Death, Strength before Weakness and Journey before Destination",
+"Greetings",
+"Sand rats..."
 ]
 
 func _ready():
@@ -44,6 +46,10 @@ func _on_campaign_select_pressed():
 
 func _on_options_pressed():
 	pass
+
+
+func _on_unit_creator_pressed():
+	get_tree().change_scene_to_file("res://unit_creation_menu.tscn")
 
 
 func _on_exit_pressed():

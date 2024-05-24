@@ -248,16 +248,149 @@ text = "Class: Infantry"
 [node name="Regular Infantry Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
+[node name="Label Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
 layout_mode = 2
 theme = ExtResource("1_iw838")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
-[node name="Regular Infantry Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/MarginContainer"]
+[node name="Unit Class Label" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Label Margin"]
 layout_mode = 2
 text = "Subclass: Regular Infantry"
+
+[node name="Description Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin"]
+layout_mode = 2
+
+[node name="Stats Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Force Strength" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Stats Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FS = 5"
+
+[node name="Armor" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Stats Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor = 0"
+
+[node name="Speed" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Stats Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed = 1"
+
+[node name="Range" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Stats Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Range = 1
+"
+
+[node name="Stealth" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Stats Vbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stealth = No
+"
+
+[node name="Horizontal Spacer 1" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Description Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit Description" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Description Vbox"]
+layout_mode = 2
+text = "Unit Description:"
+
+[node name="Description Container" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Description Vbox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 5.5
+
+[node name="Description Text" type="TextEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Description Vbox/Description Container"]
+layout_mode = 2
+text = "One of the strongest forces planetside. Most customizable unit in the field. Add Drop Pods to become Elite Drop Trooeprs at the cost of unit size."
+editable = false
+wrap_mode = 1
+
+[node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Abilities Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Unit Abilities" type="Label" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Abilities Vbox"]
+layout_mode = 2
+text = "Unit Abilities:"
+
+[node name="Abilities Container" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Abilities Vbox"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 5.5
+
+[node name="Abilities Text" type="TextEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Description Margin/HBoxContainer/Abilities Vbox/Abilities Container"]
+layout_mode = 2
+text = "Move, Attack, Assault, Rotate, Breakout, Mount, Discmout, Parachute
+Garrison, Double Time, Melee Charge, Brawl, Rappel"
+editable = false
+wrap_mode = 1
+
+[node name="Main Vertical Spacer" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Unit Creation Navigation Hbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Export Unit To File Button" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export unit to file"
+
+[node name="Horizontal Spacer 1" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Export Unit To Text" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export unit to text"
+
+[node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Return To Main Menu" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return To Main Menu"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1250, 714)
 zoom = Vector2(0.775, 0.775)
+
+[connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown" to="." method="_on_unit_class_dropdown_item_selected"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown" to="." method="_on_infantry_subclass_dropdown_item_selected"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Export Unit To File Button" to="." method="_on_export_unit_to_file_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Export Unit To Text" to="." method="_on_export_unit_to_text_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]

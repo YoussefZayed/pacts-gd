@@ -97,6 +97,10 @@ theme = ExtResource("5_mr1e6")
 text = "Options
 "
 
+[node name="Unit Creator" type="Button" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer"]
+layout_mode = 2
+text = "Unit Creator"
+
 [node name="Exit" type="Button" parent="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_mr1e6")
@@ -154,4 +158,5 @@ wrap_mode = 1
 
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Unit Creator" to="." method="_on_unit_creator_pressed"]
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
