@@ -2,6 +2,7 @@ class_name Units
 
 # Set up variables common to all units
 var unit_data = {
+		# set up name, tracking and RP info
 	"descriptive_data" : {
 		"unitName" : "Placeholder",
 		"unitCallsign" : "Placeholder",
@@ -11,6 +12,7 @@ var unit_data = {
 		"unitCommanderARMCO" : "ARMCO Username",
 		"unitBackStory" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 		},
+		# set up unit stats
 	"unit_stats" : {
 		"forceStrength" : 0,
 		"armor" : 0,
@@ -19,7 +21,7 @@ var unit_data = {
 		"weightClass" : 0,
 		"stealth" : false
 		},
-	"backend_unit info" : {
+	"backend_unit_info" : {
 		"locationX" : 0,
 		"locationY" : 0,
 		"direction" : "north",
@@ -42,6 +44,7 @@ var unit_data = {
 		"Equipment_11" : "Empty",
 		"Equipment_12" : "Empty",
 		},
+		# set up unit statuses
 	"statuses" :{
 		"frontline" : 0,
 		"weakspot" : 0
@@ -68,8 +71,9 @@ func move():
 func attack():
 	pass
 
-func rotate():
-	pass
+func rotate(direction):
+	var extract_backend = unit_data["backend_unit_info"]
+	extract_backend["direction"] = direction
 
 func breakout():
 	pass
@@ -84,4 +88,5 @@ func parachute():
 	pass
 
 func lethalDamage():
-	pass
+	var extract_descriptive = unit_data["descriptive_data"]
+	extract_descriptive.unitStatus = "MIA"
