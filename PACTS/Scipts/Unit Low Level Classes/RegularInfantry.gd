@@ -3,21 +3,8 @@ class_name RegularInfantry
 # create infantry class, from which subclasses can be derived
 extends Infantry
 
-# set up class specific varaiables
-var infantry_equipment = {
-	"Primary_Equipment_1" : "Empty",
-	"Primary_Equipment_2" : "Empty",
-	"Primary_Equipment_3" : "Empty",
-	"Primary_Equipment_4" : "Empty",
-	"Secondary_Equipment_1" : "Empty",
-	"Secondary_Equipment_2" : "Empty",
-	"Secondary_Equipment_3" : "Empty",
-	"Secondary_Equipment_4" : "Empty",
-}
-
-
 # Class Constructor
-func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName_Input,UnitCallsign_Input,UnitBackstory_Input):
+func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName_Input,UnitCallsign_Input,UnitBackstory_Input,equipment,statuses):
 	var extract_stats = unit_data["unit_stats"]
 	extract_stats["forceStrength"] = 5
 	extract_stats["armor"] = 0
@@ -40,6 +27,6 @@ func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName
 		2: 	extract_descriptive_data["unitStatus"] = Unit_Status[2]
 		3: 	extract_descriptive_data["unitStatus"] = Unit_Status[3]
 	
-	unit_data["infantry_stats"] = infantry_stats
-	unit_data["infantry_equipment"] = infantry_equipment
+	unit_data["statuses"] = statuses
+	unit_data["equipment"] = equipment
 

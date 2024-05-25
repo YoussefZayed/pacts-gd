@@ -26,6 +26,25 @@ var unit_data = {
 		"deployed" : false,
 		"rendered" : false,
 		"createable" : true,
+		},
+		# set up class specific varaiables
+	"equipment" : {
+		"Equipment_01" : "Empty",
+		"Equipment_02" : "Empty",
+		"Equipment_03" : "Empty",
+		"Equipment_04" : "Empty",
+		"Equipment_05" : "Empty",
+		"Equipment_06" : "Empty",
+		"Equipment_07" : "Empty",
+		"Equipment_08" : "Empty",
+		"Equipment_09" : "Empty",
+		"Equipment_10" : "Empty",
+		"Equipment_11" : "Empty",
+		"Equipment_12" : "Empty",
+		},
+	"statuses" :{
+		"frontline" : 0,
+		"weakspot" : 0
 		}
 }
 
