@@ -1,5 +1,7 @@
 extends Control
 
+var savePath = "user://SaveUnit1.txt"
+
 # Set up arrays for all types of unit
 var UnitClasses = ["Infantry", "Mechanized Infantry", "Armor", "Artillery", "Mech", "Air", "Orbital"]
 var Infantry_Subclasses = ["Regular Infantry", "Power Armored Infantry", "Combat Medical Unit", "Irregular Unit", "Special Forces","Combat Engineers", "Sappers"]
@@ -13,13 +15,6 @@ var Unit_Status = ["Active", "Inactive", "MIA", "Dead"]
 
 # Get Paths for all dropdown buttons
 @onready var UnitClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown"
-@onready var InfantryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown"
-@onready var MechanizedIfantryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown"
-@onready var AmorClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArmorSubclassDropdown"
-@onready var ArtilleryClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/ArtillerySubclassDropdown"
-@onready var MechClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechSubclassDropdown"
-@onready var AirClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/AirSubclassDropdown"
-@onready var OrbitalClass_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/OrbitalSubclassDropdown"
 
 @onready var Infantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown"
 @onready var MechanizedInfantry_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown"
@@ -28,13 +23,25 @@ var Unit_Status = ["Active", "Inactive", "MIA", "Dead"]
 @onready var Mech_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechSubclassDropdown"
 @onready var Air_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/AirSubclassDropdown"
 @onready var Orbital_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/OrbitalSubclassDropdown"
+
+# Get path for unit status dropdown
 @onready var Status_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown/Status Dropdown"
 
+# Get paths for class common
 @onready var Infantry_common_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"
 @onready var MechanizedInfantry_commonm_path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox"
 
+# Get paths for subclass containers
 @onready var RegularInfantryForm_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"
 @onready var MechanizedInfantryForm_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox/Mechanized Infantry Vbox"
+
+# Get paths for unit information
+@onready var UnitStatus_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown/Status Dropdown"
+@onready var UnitOwnerDiscord_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner Discord Container/LineEdit"
+@onready var UnitOwnerARMCO_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner ARMCO Container/LineEdit"
+@onready var UnitName_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Name Container/AspectRatioContainer/LineEdit"
+@onready var UnitCallsign_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Callsign Container/AspectRatioContainer/LineEdit"
+@onready var UnitBackstory_Path = $"PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/Unit Backstory Container/AspectRatioContainer/TextEdit"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,7 +62,7 @@ func _ready():
 	for n in len(Orbital_Subclasses):
 		Orbital_Path.add_item(Orbital_Subclasses[n])
 	for n in len(Unit_Status):
-		Status_Path.add_item(Unit_Status[n])
+		UnitStatus_Path.add_item(Unit_Status[n])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,7 +104,7 @@ func _on_unit_class_dropdown_item_selected(index):
 func _on_infantry_subclass_dropdown_item_selected(index):
 	RegularInfantryForm_Path.visible = false
 	
-	match InfantryClass_Path.selected:
+	match Infantry_Path.selected:
 		0:
 			RegularInfantryForm_Path.visible  = true
 
@@ -110,17 +117,14 @@ func _on_mechanized_infantry_subclass_dropdown_item_selected(index):
 
 
 
-
-func _on_export_unit_to_file_button_pressed():
-	pass # Replace with function body.
-
-
-func _on_export_unit_to_text_pressed():
-	pass # Replace with function body.
-
-
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn")
 
 
 
+
+
+func _on_regular_infantry_export_unit_to_file_button_pressed():
+	var NewUnit = RegularInfantry.new(UnitStatus_Path.selected,UnitOwnerDiscord_Path.text,UnitOwnerARMCO_Path.text,UnitName_Path.text,UnitCallsign_Path.text,UnitBackstory_Path.text)
+	var file = FileAccess.open(savePath, FileAccess.WRITE)
+	file.store_string(JSON.stringify(NewUnit.unit_data))

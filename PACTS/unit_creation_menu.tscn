@@ -352,6 +352,30 @@ Garrison, Double Time, Melee Charge, Brawl, Rappel"
 editable = false
 wrap_mode = 1
 
+[node name="Export Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Export Hbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Export Margin"]
+layout_mode = 2
+
+[node name="Regular Infantry Export Unit To File Button" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Export Margin/Export Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export unit to file"
+
+[node name="Horizontal Spacer 1" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Export Margin/Export Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Regular Infantry Export Unit To Text" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Export Margin/Export Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export unit to text"
+
 [node name="Mechanized Infantry Common Vbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox"]
 visible = false
 layout_mode = 2
@@ -483,30 +507,20 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Export Unit To File Button" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Export unit to file"
-
 [node name="Horizontal Spacer 1" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Export Unit To Text" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Export unit to text"
-
-[node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
+size_flags_stretch_ratio = 0.5
 
 [node name="Return To Main Menu" type="Button" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Return To Main Menu"
+
+[node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1250, 714)
@@ -515,6 +529,5 @@ zoom = Vector2(0.775, 0.775)
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown" to="." method="_on_unit_class_dropdown_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown" to="." method="_on_infantry_subclass_dropdown_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown" to="." method="_on_mechanized_infantry_subclass_dropdown_item_selected"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Export Unit To File Button" to="." method="_on_export_unit_to_file_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Export Unit To Text" to="." method="_on_export_unit_to_text_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Export Margin/Export Hbox/Regular Infantry Export Unit To File Button" to="." method="_on_regular_infantry_export_unit_to_file_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]

@@ -2,9 +2,11 @@ class_name Infantry
 
 extends Units
 
-var frontline = 3
-var orbitalDropTraining = false
-var flackVests = false
+var infantry_stats = {
+	"frontline" : 3,
+	"orbitalDropTraining" : false,
+	"flackVests" : false
+}
 
 func garrison():
 	pass
