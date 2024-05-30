@@ -41,6 +41,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="UnitClassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -48,6 +49,7 @@ theme = ExtResource("1_iw838")
 theme_override_font_sizes/font_size = 32
 
 [node name="InfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -112,6 +114,7 @@ layout_mode = 2
 text = "Unit Status:"
 
 [node name="Status Dropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Status Dropdown"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 
@@ -129,6 +132,7 @@ layout_mode = 2
 text = "Discord Username:"
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner Discord Container"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme = ExtResource("1_iw838")
 placeholder_text = "Discord username name here"
@@ -148,6 +152,7 @@ text = "ARMCO server Username:
 "
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner ARMCO Container"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme = ExtResource("1_iw838")
 placeholder_text = "Username Here"
@@ -246,20 +251,20 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 text = "Class: Infantry"
 
-[node name="Label Margin2" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
+[node name="Upgrades" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
 layout_mode = 2
 theme = ExtResource("1_iw838")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Label Margin2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Upgrades"]
 layout_mode = 2
 
-[node name="Oribal Drop Training" type="CheckBox" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Label Margin2/HBoxContainer"]
+[node name="Oribal Drop Training" type="CheckBox" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Upgrades/HBoxContainer"]
 layout_mode = 2
 text = "Orbital Drop Training"
 
-[node name="Flak Vests" type="CheckBox" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Label Margin2/HBoxContainer"]
+[node name="Flak Vests" type="CheckBox" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Upgrades/HBoxContainer"]
 layout_mode = 2
 text = "Flak Vests"
 
@@ -697,8 +702,10 @@ zoom = Vector2(0.77, 0.77)
 
 [node name="Gridwalker Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_llhts")
+volume_db = -50.0
 autoplay = true
 max_distance = 5000.0
+bus = &"Music"
 
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown" to="." method="_on_unit_class_dropdown_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown" to="." method="_on_infantry_subclass_dropdown_item_selected"]

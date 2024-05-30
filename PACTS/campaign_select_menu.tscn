@@ -202,8 +202,10 @@ script = SubResource("GDScript_ctba3")
 
 [node name="Dark Side Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_d8164")
+volume_db = -50.0
 autoplay = true
 max_distance = 5000.0
+bus = &"Music"
 
 [connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Join Campaign" to="." method="_on_join_campaign_pressed"]
 [connection signal="pressed" from="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]

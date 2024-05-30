@@ -12,3 +12,7 @@ func _ready():
 
 func _on_return_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://menu.tscn") # return to the main menu when button is pressed
+
+
+func _on_options_pressed():
+	$"UI/Settings Menu".visible = true

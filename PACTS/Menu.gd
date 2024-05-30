@@ -46,7 +46,7 @@ func _on_campaign_select_pressed():
 
 
 func _on_options_pressed():
-	pass
+	$"Settings Menu".visible = true
 
 
 func _on_unit_creator_pressed():
@@ -55,3 +55,4 @@ func _on_unit_creator_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit() # exit game
+

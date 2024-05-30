@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cncitocpqh5gn"]
+[gd_scene load_steps=13 format=3 uid="uid://cncitocpqh5gn"]
 
 [ext_resource type="Texture2D" uid="uid://c7sisvdalgv70" path="res://Game Assets/Map Assets/Blood_and_sand_Breif_Map.jpg" id="1_1li5s"]
 [ext_resource type="Script" path="res://CampaignMapData.gd" id="1_nftt5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_jxsrd"]
 [ext_resource type="Texture2D" uid="uid://du2uawkqpy314" path="res://Game Assets/Unit Status Assets/Infantry Frontline 3.png" id="6_mu1dc"]
 [ext_resource type="Texture2D" uid="uid://brmogu4uyjcne" path="res://Game Assets/Unit Assets/Infantry_unit_topdown.png" id="7_tfh8j"]
+[ext_resource type="PackedScene" uid="uid://cbiljfcns5dn0" path="res://settings_menu.tscn" id="8_erx8s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgc0c"]
 resource_name = "Hex Tile"
@@ -95,6 +96,9 @@ theme = ExtResource("5_jxsrd")
 theme_type_variation = &"HeaderLarge"
 text = "Zoom"
 
+[node name="Settings Menu" parent="UI" instance=ExtResource("8_erx8s")]
+visible = false
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(128, 91)
 script = ExtResource("2_8an40")
@@ -147,3 +151,4 @@ expand_mode = 1
 stretch_mode = 5
 
 [connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]

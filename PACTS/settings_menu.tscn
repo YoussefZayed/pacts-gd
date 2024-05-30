@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbiljfcns5dn0"]
+
+[ext_resource type="Shader" path="res://BlurBackgroundShader.gdshader" id="1_bc2o7"]
+[ext_resource type="Script" path="res://settings_menu.gd" id="1_wqslh"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="2_pm064"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cykc"]
+shader = ExtResource("1_bc2o7")
+shader_parameter/lod = 2.0
+
+[node name="Settings Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqslh")
+
+[node name="Blur Rectangle" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3cykc")
+custom_minimum_size = Vector2(2500, 1500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1250.0
+offset_top = -750.0
+offset_right = 1250.0
+offset_bottom = 750.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_pm064")
+tab_alignment = 1
+current_tab = 1
+
+[node name="Audio" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 500.0
+
+[node name="Audio Vbox" type="VBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="Music Hbox" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Music"
+
+[node name="Volume Indicator" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "30"
+
+[node name="Music Volume" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+value = 30.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SFX HBox" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "SFX"
+
+[node name="Volume Indicator" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "30"
+
+[node name="SFX Volume" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+value = 30.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Dialogue HBox" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox"]
+layout_mode = 2
+
+[node name="Dialogue" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Dialogue"
+
+[node name="Volume Indicator" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "30"
+
+[node name="Dialogue Volume" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+value = 30.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Video" type="TabBar" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Video"]
+offset_right = 960.0
+offset_bottom = 500.0
+
+[node name="Video Vbox" type="VBoxContainer" parent="MarginContainer/TabContainer/Video/MarginContainer"]
+layout_mode = 2
+
+[node name="Video Hbox" type="HBoxContainer" parent="MarginContainer/TabContainer/Video/MarginContainer/Video Vbox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Video/MarginContainer/Video Vbox/Video Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window Mode"
+
+[node name="Horizontal Spacer" type="Control" parent="MarginContainer/TabContainer/Video/MarginContainer/Video Vbox/Video Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="window mode" type="OptionButton" parent="MarginContainer/TabContainer/Video/MarginContainer/Video Vbox/Video Hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Other" type="TabBar" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Exit Settings"
+
+[connection signal="drag_ended" from="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox/Music Volume" to="." method="_on_music_volume_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox/SFX Volume" to="." method="_on_sfx_volume_drag_ended"]
+[connection signal="drag_ended" from="MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox/Dialogue Volume" to="." method="_on_dialogue_volume_drag_ended"]
+[connection signal="item_selected" from="MarginContainer/TabContainer/Video/MarginContainer/Video Vbox/Video Hbox/window mode" to="." method="_on_window_mode_item_selected"]
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
