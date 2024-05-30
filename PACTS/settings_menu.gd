@@ -22,19 +22,19 @@ func _process(delta):
 
 
 func _on_music_volume_drag_ended(value_changed):
-	var music_volume = $"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox/Music Volume".value
-	$"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Music Hbox/Volume Indicator".text = str(music_volume)
+	var music_volume = $"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Music Hbox/Music Volume".value
+	$"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Music Hbox/Volume Indicator".text = str(music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),music_volume-20)
 
 func _on_sfx_volume_drag_ended(value_changed):
-	var SFX_volume = $"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox/SFX Volume".value
-	$"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/SFX HBox/Volume Indicator".text = str(SFX_volume)
+	var SFX_volume = $"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/SFX HBox/SFX Volume".value
+	$"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/SFX HBox/Volume Indicator".text = str(SFX_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),SFX_volume-20)
 
 
 func _on_dialogue_volume_drag_ended(value_changed):
-	var Dialogue_volume = $"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox/Dialogue Volume".value
-	$"MarginContainer/TabContainer/Audio/MarginContainer/Audio Vbox/Dialogue HBox/Volume Indicator".text = str(Dialogue_volume)
+	var Dialogue_volume = $"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Dialogue HBox/Dialogue Volume".value
+	$"MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Dialogue HBox/Volume Indicator".text = str(Dialogue_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),Dialogue_volume-20)
 
 
