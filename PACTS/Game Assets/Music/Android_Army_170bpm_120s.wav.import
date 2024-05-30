@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6a8l8x8m2we1"
+path="res://.godot/imported/Android_Army_170bpm_120s.wav-30d76a5248bae8f17660c15d8157589d.sample"
+
+[deps]
+
+source_file="res://Game Assets/Music/Android_Army_170bpm_120s.wav"
+dest_files=["res://.godot/imported/Android_Army_170bpm_120s.wav-30d76a5248bae8f17660c15d8157589d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

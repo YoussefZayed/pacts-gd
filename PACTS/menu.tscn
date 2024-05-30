@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://csgf1n0oitmou"]
+[gd_scene load_steps=15 format=3 uid="uid://csgf1n0oitmou"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_twuq2"]
 [ext_resource type="Texture2D" uid="uid://u44cpch5n41u" path="res://Game Assets/UI ASSETS/PACTS MENU TEMP.png" id="2_sb6dx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_0wp72"]
 [ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="6_5sau5"]
 [ext_resource type="FontFile" uid="uid://477jr77dy64o" path="res://Game Assets/Fonts/ETHNOCEN.TTF" id="8_eeqmc"]
+[ext_resource type="AudioStream" uid="uid://b6a8l8x8m2we1" path="res://Game Assets/Music/Android_Army_170bpm_120s.wav" id="8_l53c2"]
 
 [sub_resource type="Gradient" id="Gradient_ojw40"]
 colors = PackedColorArray(1, 1, 1, 0.494118, 1, 1, 1, 0)
@@ -159,6 +160,11 @@ editable = false
 context_menu_enabled = false
 selecting_enabled = false
 wrap_mode = 1
+
+[node name="Android Army Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_l53c2")
+autoplay = true
+max_distance = 5000.0
 
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Campaign Select" to="." method="_on_campaign_select_pressed"]
 [connection signal="pressed" from="Overall Margins/VBoxContainer/HBoxContainer/Menu Margins/VBoxContainer/Options" to="." method="_on_options_pressed"]

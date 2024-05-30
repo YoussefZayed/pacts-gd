@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6flbpbavppgd"
+path="res://.godot/imported/Gridwalker_120s.wav-ba06c93ae8e0ee9615a9b7e788781844.sample"
+
+[deps]
+
+source_file="res://Game Assets/Music/Gridwalker_120s.wav"
+dest_files=["res://.godot/imported/Gridwalker_120s.wav-ba06c93ae8e0ee9615a9b7e788781844.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

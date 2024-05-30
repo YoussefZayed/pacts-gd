@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsb8hqixik2f5"
+path="res://.godot/imported/Dark Side (Looped).wav-cd7fe48fa863d911f0be0f08c81c8c9c.sample"
+
+[deps]
+
+source_file="res://Game Assets/Music/Dark Side (Looped).wav"
+dest_files=["res://.godot/imported/Dark Side (Looped).wav-cd7fe48fa863d911f0be0f08c81c8c9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
