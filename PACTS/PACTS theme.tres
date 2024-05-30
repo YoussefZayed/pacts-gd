@@ -30,5 +30,6 @@ TabBar/font_sizes/font_size = 32
 TabBar/fonts/font = ExtResource("1_nagvh")
 TabContainer/font_sizes/font_size = 32
 TabContainer/fonts/font = ExtResource("1_nagvh")
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
 TransparentContainer/base_type = &"PanelContainer"
 TransparentContainer/styles/panel = SubResource("StyleBoxEmpty_vx3px")
