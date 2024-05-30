@@ -1,12 +1,12 @@
 extends Control
 
-@onready var window_mode_button = $"MarginContainer/TabContainer/Video/MarginContainer/Video Vbox/Video Hbox/window mode"
+@onready var window_mode_button = $"MarginContainer/TabContainer/-Video-/MarginContainer/Video Vbox/Video Hbox/window mode"
 
 const WINDOW_MODE_ARRAY : Array[String] = [
-	"Full-screeen",
 	"Window Mode",
-	"Borderless Full-Screen",
-	"Borderless Window"	
+	"Borderless Window",
+	"Full-screeen",
+	"Borderless Full-Screen"
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -40,18 +40,20 @@ func _on_dialogue_volume_drag_ended(value_changed):
 
 func _on_window_mode_item_selected(index : int) -> void:
 	match index:
-		0: # Fullscreen
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
-		1: # Window
+
+		0: # Window
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
-		2: # Borderless Fullscreen
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
-		3: # Borderless Window
+		1: # Borderless Window
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+		2: # Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,false)
+		3: # Borderless Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+		
 
 
 func _on_button_pressed():
