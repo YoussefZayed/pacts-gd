@@ -4,13 +4,19 @@ class_name RegularInfantry
 extends Infantry
 
 # Class Constructor
-func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName_Input,UnitCallsign_Input,UnitBackstory_Input,equipment,statuses):
-	var extract_stats = unit_data["unit_stats"]
-	extract_stats["forceStrength"] = 5
-	extract_stats["armor"] = 0
-	extract_stats["speed"] = 1
-	extract_stats["range"] = 1
-	extract_stats["weightClass"] = 1
+func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName_Input,UnitCallsign_Input,UnitBackstory_Input,equipment):
+	var unit_stats = {
+	"forceStrength" : 5,
+	"armor" : 0,
+	"speed" : 1,
+	"range" : 1,
+	"weightClass" : 1
+	}
+	
+	var statuses  ={
+	"frontline" : 3,
+	"weakspot" : 0
+	}
 	
 	var extract_descriptive_data = unit_data["descriptive_data"]
 	extract_descriptive_data["unitClass"] = "Regular Infantry"
@@ -27,6 +33,7 @@ func _init(UnitStatus_Input,UnitOwnerDiscord_Input,UnitOwnerARMCO_Input,UnitName
 		2: 	extract_descriptive_data["unitStatus"] = Unit_Status[2]
 		3: 	extract_descriptive_data["unitStatus"] = Unit_Status[3]
 	
+	unit_data["unit_stats"] = unit_stats
 	unit_data["statuses"] = statuses
 	unit_data["equipment"] = equipment
 

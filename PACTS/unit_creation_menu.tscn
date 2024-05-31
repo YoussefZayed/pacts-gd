@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://beyloroiptsm0"]
+[gd_scene load_steps=7 format=3 uid="uid://beyloroiptsm0"]
 
 [ext_resource type="Script" path="res://unit_creation_menu.gd" id="1_37jiy"]
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="1_iw838"]
 [ext_resource type="Texture2D" uid="uid://dueawygyutvcp" path="res://Game Assets/UI ASSETS/PACTS UNIT CREATION TEMP.png" id="2_uom58"]
 [ext_resource type="AudioStream" uid="uid://6flbpbavppgd" path="res://Game Assets/Music/Gridwalker_120s.wav" id="4_llhts"]
+[ext_resource type="Script" path="res://Confirmation_Popup.gd" id="5_nuy7l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v446e"]
 
@@ -707,8 +708,45 @@ autoplay = true
 max_distance = 5000.0
 bus = &"Music"
 
+[node name="Confirmation_Popup" type="Window" parent="."]
+title = "Unit Saved!"
+initial_position = 1
+size = Vector2i(1000, 150)
+visible = false
+exclusive = true
+unresizable = true
+borderless = true
+popup_window = true
+script = ExtResource("5_nuy7l")
+
+[node name="MarginContainer" type="MarginContainer" parent="Confirmation_Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_iw838")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Confirmation_Popup/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Confirmation_Popup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_iw838")
+theme_override_font_sizes/font_size = 16
+text = "Your unit has been saved to:"
+
+[node name="Close" type="Button" parent="Confirmation_Popup/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 16
+text = "Close pop-up"
+
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/UnitClassDropdown" to="." method="_on_unit_class_dropdown_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/InfantrySubclassDropdown" to="." method="_on_infantry_subclass_dropdown_item_selected"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container/MechanizedInfantrySubclassDropdown" to="." method="_on_mechanized_infantry_subclass_dropdown_item_selected"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Regular Infantry Export Unit To File Button" to="." method="_on_regular_infantry_export_unit_to_file_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Creation Navigation Hbox/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="Confirmation_Popup/MarginContainer/VBoxContainer/Close" to="Confirmation_Popup" method="_on_close_pressed"]

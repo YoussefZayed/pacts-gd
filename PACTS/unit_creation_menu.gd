@@ -88,6 +88,13 @@ func _ready():
 		RegularInfantrySecondaryDropdown2_path.add_item(RegularInfantrySecondaryEquipment[n])
 		RegularInfantrySecondaryDropdown3_path.add_item(RegularInfantrySecondaryEquipment[n])
 		RegularInfantrySecondaryDropdown4_path.add_item(RegularInfantrySecondaryEquipment[n])
+		
+		var username
+		if OS.has_environment("USERNAME"):
+			username = OS.get_environment("USERNAME")
+		else:
+			username = "Player"
+		$Confirmation_Popup/MarginContainer/VBoxContainer/Label.text = str("Your unit has been saved to: \n C:\\Users\\thebr\\AppData\\Roaming\\Godot\\app_userdata\\PACTS \n _")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -164,12 +171,8 @@ func _on_regular_infantry_export_unit_to_file_button_pressed():
 	"Equipment_12" : "Empty"
 	}
 	
-	var statuses  ={
-		"frontline" : 3,
-		"weakspot" : 0
-		}
-	
 	var savePath = str("user://",UnitName_Path.text,".txt")
-	var NewUnit = RegularInfantry.new(UnitStatus_Path.selected,UnitOwnerDiscord_Path.text,UnitOwnerARMCO_Path.text,UnitName_Path.text,UnitCallsign_Path.text,UnitBackstory_Path.text,regular_infantry_equipment,statuses)
+	var NewUnit = RegularInfantry.new(UnitStatus_Path.selected,UnitOwnerDiscord_Path.text,UnitOwnerARMCO_Path.text,UnitName_Path.text,UnitCallsign_Path.text,UnitBackstory_Path.text,regular_infantry_equipment)
 	var file = FileAccess.open(savePath, FileAccess.WRITE)
 	file.store_string(JSON.stringify(NewUnit.unit_data))
+	$Confirmation_Popup.visible = true

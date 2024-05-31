@@ -144,6 +144,7 @@ layout_mode = 2
 theme = ExtResource("2_pm064")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/-Video-"]
+layout_mode = 0
 offset_right = 960.0
 offset_bottom = 500.0
 
