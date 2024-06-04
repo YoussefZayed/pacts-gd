@@ -149,7 +149,7 @@ func _on_mechanized_infantry_subclass_dropdown_item_selected(index):
 
 
 func _on_return_to_main_menu_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menus/menu.tscn")
 
 
 

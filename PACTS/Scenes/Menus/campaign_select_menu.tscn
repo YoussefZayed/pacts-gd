@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://6fek4ta17jj0"]
 
-[ext_resource type="Script" path="res://campaign_select_menu.gd" id="1_abx1n"]
-[ext_resource type="Texture2D" uid="uid://cj6omuqwdv017" path="res://Game Assets/UI ASSETS/hill-74571.jpg" id="2_b75lx"]
-[ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://Game Assets/UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="3_86mht"]
-[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="4_2fe78"]
-[ext_resource type="Texture2D" uid="uid://d06o4fifpft6r" path="res://icon.svg" id="5_sgdhf"]
-[ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="6_7uuk3"]
-[ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_482qf"]
-[ext_resource type="AudioStream" uid="uid://dsb8hqixik2f5" path="res://Game Assets/Music/Dark Side (Looped).wav" id="8_d8164"]
+[ext_resource type="Script" path="res://Game Assets/Scripts/campaign_select_menu.gd" id="1_lkeeh"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="2_0qtcp"]
+[ext_resource type="Texture2D" uid="uid://cj6omuqwdv017" path="res://Game Assets/UI ASSETS/hill-74571.jpg" id="3_oumll"]
+[ext_resource type="Texture2D" uid="uid://b6egc88v7bvv2" path="res://Game Assets/UI ASSETS/Planetary and Aerial Combat Tabletop Simulator.png" id="4_m4vb7"]
+[ext_resource type="Texture2D" uid="uid://d06o4fifpft6r" path="res://icon.svg" id="5_6r8kk"]
+[ext_resource type="Texture2D" uid="uid://okkf0nxp45ld" path="res://Game Assets/UI ASSETS/ARMCO logo mini.png" id="6_pt5h1"]
+[ext_resource type="Texture2D" uid="uid://chu70ahjjoxs3" path="res://Game Assets/UI ASSETS/Guardian Circle.png" id="7_ypj43"]
+[ext_resource type="AudioStream" uid="uid://dsb8hqixik2f5" path="res://Game Assets/Music/Dark Side (Looped).wav" id="8_5vjoy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pk6xj"]
 
@@ -22,18 +22,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_abx1n")
+script = ExtResource("1_lkeeh")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 4000.0
 offset_bottom = 2248.0
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pk6xj")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_b75lx")
+texture = ExtResource("3_oumll")
 
 [node name="Main Margin" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -47,7 +47,7 @@ layout_mode = 2
 
 [node name="Title Rectangle" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_86mht")
+texture = ExtResource("4_m4vb7")
 stretch_mode = 3
 
 [node name="Main Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer"]
@@ -56,7 +56,7 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 alignment = 1
 
 [node name="Left Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer"]
@@ -73,17 +73,17 @@ layout_mode = 2
 
 [node name="Join Campaign" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 text = "   Join Campaign   
 "
-icon = ExtResource("5_sgdhf")
+icon = ExtResource("5_6r8kk")
 alignment = 0
 
 [node name="Return to main menu" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Left Panel Margin/Left Menu Panel/Left Menu Margins/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 text = "   Return to main menu   "
-icon = ExtResource("5_sgdhf")
+icon = ExtResource("5_6r8kk")
 alignment = 0
 
 [node name="Right Panel Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer"]
@@ -103,64 +103,64 @@ columns = 4
 [node name="Campaign Name Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 
 [node name="Campaign Name" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Campaign Name Margin"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderLarge"
 text = "Campaign Name"
 horizontal_alignment = 1
 
 [node name="Active Units Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 
 [node name="Active Units" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Active Units Margin"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderLarge"
 text = "Active Units"
 horizontal_alignment = 1
 
 [node name="Start Date Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 
 [node name="Start Date" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Start Date Margin"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderLarge"
 text = "Start Date"
 horizontal_alignment = 1
 
 [node name="Round Number Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 
 [node name="Round Number" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/Round Number Margin"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderLarge"
 text = "Round Number"
 horizontal_alignment = 1
 
 [node name="B&S Button Margin" type="MarginContainer" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Blood and Sand" type="Button" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid/B&S Button Margin"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 text = "   Blood and Sand   "
-icon = ExtResource("5_sgdhf")
+icon = ExtResource("5_6r8kk")
 
 [node name="B&S AU" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderMedium"
 text = "100
 "
@@ -168,14 +168,14 @@ horizontal_alignment = 1
 
 [node name="B&S SD" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderMedium"
 text = "22/05/2024"
 horizontal_alignment = 1
 
 [node name="B&S RN" type="Label" parent="PanelContainer/Main Margin/VBoxContainer/Main Panel Margin/HBoxContainer/Right Panel Margin/Right Menu Panel/Right Menu Margins/All campaigns grid"]
 layout_mode = 2
-theme = ExtResource("4_2fe78")
+theme = ExtResource("2_0qtcp")
 theme_type_variation = &"HeaderMedium"
 text = "1"
 horizontal_alignment = 1
@@ -186,12 +186,12 @@ columns = 2
 
 [node name="ARMCO" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer/Logo grid"]
 layout_mode = 2
-texture = ExtResource("6_482qf")
+texture = ExtResource("6_pt5h1")
 stretch_mode = 5
 
 [node name="Guardian" type="TextureRect" parent="PanelContainer/Main Margin/VBoxContainer/Logo grid"]
 layout_mode = 2
-texture = ExtResource("6_7uuk3")
+texture = ExtResource("7_ypj43")
 expand_mode = 3
 stretch_mode = 5
 
@@ -201,7 +201,7 @@ zoom = Vector2(0.48, 0.48)
 script = SubResource("GDScript_ctba3")
 
 [node name="Dark Side Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_d8164")
+stream = ExtResource("8_5vjoy")
 volume_db = -50.0
 autoplay = true
 max_distance = 5000.0

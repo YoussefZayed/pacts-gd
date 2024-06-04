@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://beyloroiptsm0"]
 
-[ext_resource type="Script" path="res://unit_creation_menu.gd" id="1_37jiy"]
-[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="1_iw838"]
-[ext_resource type="Texture2D" uid="uid://dueawygyutvcp" path="res://Game Assets/UI ASSETS/PACTS UNIT CREATION TEMP.png" id="2_uom58"]
-[ext_resource type="AudioStream" uid="uid://6flbpbavppgd" path="res://Game Assets/Music/Gridwalker_120s.wav" id="4_llhts"]
-[ext_resource type="Script" path="res://Confirmation_Popup.gd" id="5_nuy7l"]
+[ext_resource type="Script" path="res://Game Assets/Scripts/unit_creation_menu.gd" id="1_6uccm"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="2_jwe1y"]
+[ext_resource type="Texture2D" uid="uid://dueawygyutvcp" path="res://Game Assets/UI ASSETS/PACTS UNIT CREATION TEMP.png" id="3_66o72"]
+[ext_resource type="AudioStream" uid="uid://6flbpbavppgd" path="res://Game Assets/Music/Gridwalker_120s.wav" id="4_eawxt"]
+[ext_resource type="Script" path="res://Game Assets/Scripts/Confirmation_Popup.gd" id="5_l6g00"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v446e"]
 
@@ -15,22 +15,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_37jiy")
+script = ExtResource("1_6uccm")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_v446e")
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_uom58")
+texture = ExtResource("3_66o72")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -46,7 +46,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_font_sizes/font_size = 32
 
 [node name="InfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
@@ -54,7 +54,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_font_sizes/font_size = 32
 
 [node name="MechanizedInfantrySubclassDropdown" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Class Select Dropdown Container"]
@@ -98,7 +98,7 @@ layout_mode = 2
 
 [node name="Unit Owner Form Margins" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -135,7 +135,7 @@ text = "Discord Username:"
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner Discord Container"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 placeholder_text = "Discord username name here"
 
 [node name="Horizontal Spacer 2" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox"]
@@ -155,12 +155,12 @@ text = "ARMCO server Username:
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Owner Form Margins/Unit Owner Form Vbox/Unit Owner ARMCO Container"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 placeholder_text = "Username Here"
 
 [node name="Unit Name Form Margins" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -190,7 +190,7 @@ alignment_horizontal = 0
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Name Container/AspectRatioContainer"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 placeholder_text = "Unit name Here"
 
 [node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer"]
@@ -217,7 +217,7 @@ alignment_horizontal = 0
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox/VBoxContainer/Unit Callsign Container/AspectRatioContainer"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 placeholder_text = "Unit callsign here"
 
 [node name="Unit Backstory Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Unit Form Common Vbox/Unit Name Form Margins/Unit Name Form Hbox"]
@@ -244,7 +244,7 @@ layout_mode = 2
 
 [node name="Label Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -254,7 +254,7 @@ text = "Class: Infantry"
 
 [node name="Upgrades" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -274,7 +274,7 @@ layout_mode = 2
 
 [node name="Label Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -284,7 +284,7 @@ text = "Subclass: Regular Infantry"
 
 [node name="Description Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -378,17 +378,17 @@ wrap_mode = 1
 
 [node name="Equipment Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
 [node name="Equipment Tabs" type="TabContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Primary Equipment" type="TabBar" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment"]
 layout_mode = 0
@@ -402,7 +402,7 @@ layout_mode = 2
 [node name="Slot 1" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 1 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 1"]
 layout_mode = 2
@@ -414,12 +414,12 @@ text = "Slot 1:"
 
 [node name="Slot 1 option button" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 1/Slot 1 Hbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 2" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 2 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 2"]
 layout_mode = 2
@@ -431,12 +431,12 @@ text = "Slot 2:"
 
 [node name="Slot 2 option button" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 2/Slot 2 Hbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 3" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 3 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 3"]
 layout_mode = 2
@@ -448,12 +448,12 @@ text = "Slot 3:"
 
 [node name="Slot 3 option button" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 3/Slot 3 Hbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 4" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 4 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 4"]
 layout_mode = 2
@@ -465,12 +465,12 @@ text = "Slot 4:"
 
 [node name="Slot 4 option button" type="OptionButton" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Primary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 4/Slot 4 Hbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Secondary Equipment" type="TabBar" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment"]
 layout_mode = 0
@@ -484,7 +484,7 @@ layout_mode = 2
 [node name="Slot 1" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 1 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 1"]
 layout_mode = 2
@@ -500,7 +500,7 @@ layout_mode = 2
 [node name="Slot 2" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 2 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 2"]
 layout_mode = 2
@@ -516,7 +516,7 @@ layout_mode = 2
 [node name="Slot 3" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 3 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 3"]
 layout_mode = 2
@@ -532,7 +532,7 @@ layout_mode = 2
 [node name="Slot 4" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="Slot 4 Hbox" type="VBoxContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Infantry Common Vbox/Regular Infantry Vbox/Equipment Margin/Equipment Tabs/Secondary Equipment/AspectRatioContainer/Primary Equipment Hbox/Slot 4"]
 layout_mode = 2
@@ -551,7 +551,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -564,7 +564,7 @@ layout_mode = 2
 
 [node name="Label Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox/Mechanized Infantry Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -574,7 +574,7 @@ text = "Subclass: Mechanized Infantry"
 
 [node name="Description Margin" type="MarginContainer" parent="PanelContainer/MarginContainer/PanelContainer/Overall Unit Creation Vbox/Mechanized Infantry Common Vbox/Mechanized Infantry Vbox"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -702,7 +702,7 @@ position = Vector2(1250, 714)
 zoom = Vector2(0.77, 0.77)
 
 [node name="Gridwalker Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_llhts")
+stream = ExtResource("4_eawxt")
 volume_db = -50.0
 autoplay = true
 max_distance = 5000.0
@@ -717,7 +717,7 @@ exclusive = true
 unresizable = true
 borderless = true
 popup_window = true
-script = ExtResource("5_nuy7l")
+script = ExtResource("5_l6g00")
 
 [node name="MarginContainer" type="MarginContainer" parent="Confirmation_Popup"]
 anchors_preset = 15
@@ -727,14 +727,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Confirmation_Popup/MarginContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Confirmation_Popup/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_iw838")
+theme = ExtResource("2_jwe1y")
 theme_override_font_sizes/font_size = 16
 text = "Your unit has been saved to:"
 

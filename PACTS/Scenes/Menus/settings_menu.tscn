@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbiljfcns5dn0"]
 
 [ext_resource type="Shader" path="res://BlurBackgroundShader.gdshader" id="1_bc2o7"]
-[ext_resource type="Script" path="res://settings_menu.gd" id="1_wqslh"]
+[ext_resource type="Script" path="res://Game Assets/Scripts/settings_menu.gd" id="1_wqslh"]
 [ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="2_pm064"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3cykc"]

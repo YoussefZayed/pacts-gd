@@ -42,7 +42,7 @@ func _ready():
 	$"Overall Margins/VBoxContainer/Bottom Hbox/AspectRatioContainer/TextEdit".text = welcomeMessage[ran_num] # display welcome message in text
 
 func _on_campaign_select_pressed():
-	get_tree().change_scene_to_file("res://campaign_select_menu.tscn") # change to campaign select menu once selected
+	get_tree().change_scene_to_file("res://Scenes/Menus/campaign_select_menu.tscn") # change to campaign select menu once selected
 
 
 func _on_options_pressed():
@@ -50,7 +50,7 @@ func _on_options_pressed():
 
 
 func _on_unit_creator_pressed():
-	get_tree().change_scene_to_file("res://unit_creation_menu.tscn") # change to unit creation scene once selected
+	get_tree().change_scene_to_file("res://Scenes/Menus/unit_creation_menu.tscn") # change to unit creation scene once selected
 
 
 func _on_exit_pressed():

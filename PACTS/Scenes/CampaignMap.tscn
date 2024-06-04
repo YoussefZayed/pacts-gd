@@ -1,17 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cncitocpqh5gn"]
+[gd_scene load_steps=11 format=3 uid="uid://cncitocpqh5gn"]
 
-[ext_resource type="Texture2D" uid="uid://c7sisvdalgv70" path="res://Game Assets/Map Assets/Blood_and_sand_Breif_Map.jpg" id="1_1li5s"]
-[ext_resource type="Script" path="res://CampaignMapData.gd" id="1_nftt5"]
-[ext_resource type="Script" path="res://UI/Camera.gd" id="2_8an40"]
-[ext_resource type="Texture2D" uid="uid://cfmt6n0suyfks" path="res://Game Assets/Map Assets/Hex.png" id="3_u83yr"]
-[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="5_jxsrd"]
-[ext_resource type="Texture2D" uid="uid://du2uawkqpy314" path="res://Game Assets/Unit Status Assets/Infantry Frontline 3.png" id="6_mu1dc"]
-[ext_resource type="Texture2D" uid="uid://brmogu4uyjcne" path="res://Game Assets/Unit Assets/Infantry_unit_topdown.png" id="7_tfh8j"]
-[ext_resource type="PackedScene" uid="uid://cbiljfcns5dn0" path="res://settings_menu.tscn" id="8_erx8s"]
+[ext_resource type="Script" path="res://Game Assets/Scripts/CampaignMapData.gd" id="1_aepgl"]
+[ext_resource type="Texture2D" uid="uid://c7sisvdalgv70" path="res://Game Assets/Map Assets/Blood_and_sand_Breif_Map.jpg" id="2_mnbwj"]
+[ext_resource type="Texture2D" uid="uid://cfmt6n0suyfks" path="res://Game Assets/Map Assets/Hex.png" id="3_bi4gf"]
+[ext_resource type="Theme" uid="uid://dmc0x8nty1vom" path="res://PACTS theme.tres" id="4_dcya5"]
+[ext_resource type="PackedScene" uid="uid://cbiljfcns5dn0" path="res://Scenes/Menus/settings_menu.tscn" id="5_r6s3x"]
+[ext_resource type="Script" path="res://UI/Camera.gd" id="6_7dnjg"]
+[ext_resource type="PackedScene" uid="uid://byqhhx88y1smf" path="res://Scenes/infantry_unit.tscn" id="7_sd1lc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgc0c"]
 resource_name = "Hex Tile"
-texture = ExtResource("3_u83yr")
+texture = ExtResource("3_bi4gf")
 texture_region_size = Vector2i(886, 769)
 0:0/0 = 0
 
@@ -25,16 +24,14 @@ sources/0 = SubResource("TileSetAtlasSource_hgc0c")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o12cc"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fembh"]
-
 [node name="CampaignMap" type="Node2D"]
-script = ExtResource("1_nftt5")
+script = ExtResource("1_aepgl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 12032.0
 offset_bottom = 6769.0
 scale = Vector2(2, 2)
-texture = ExtResource("1_1li5s")
+texture = ExtResource("2_mnbwj")
 
 [node name="HexTileMap" type="TileMap" parent="."]
 position = Vector2(710, 466)
@@ -49,7 +46,7 @@ layer_0/tile_data = PackedInt32Array(-65538, 0, 0, -2, 0, 0, 65534, 0, 0, 131070
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 
 [node name="GridContainer" type="GridContainer" parent="UI/Corner Margin"]
 layout_mode = 2
@@ -70,17 +67,17 @@ layout_mode = 2
 
 [node name="Return to main menu" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = " Return to main menu "
 
 [node name="Command Submission" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = " Command Submission "
 
 [node name="Options" type="Button" parent="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = "Options"
 
 [node name="Label Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer"]
@@ -92,7 +89,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Zoom Label" type="Label" parent="UI/Corner Margin/GridContainer/Label Margin"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 theme_type_variation = &"HeaderLarge"
 text = "Zoom"
 
@@ -112,17 +109,17 @@ layout_mode = 2
 
 [node name="Load Unit" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = "Load Unit"
 
 [node name="Move Unit" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = "Move Unit"
 
 [node name="Unit action" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 text = "Unit Action"
 
 [node name="Unit Load Menu" type="Control" parent="UI"]
@@ -139,7 +136,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_jxsrd")
+theme = ExtResource("4_dcya5")
 
 [node name="Menu Margin" type="MarginContainer" parent="UI/Unit Load Menu"]
 layout_mode = 1
@@ -207,59 +204,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Close"
 
-[node name="Settings Menu" parent="UI" instance=ExtResource("8_erx8s")]
+[node name="Settings Menu" parent="UI" instance=ExtResource("5_r6s3x")]
 visible = false
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(128, 91)
-script = ExtResource("2_8an40")
+script = ExtResource("6_7dnjg")
 
-[node name="Test Unit" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 602.0
-offset_top = 850.0
-offset_right = 1488.0
-offset_bottom = 1619.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(443, 384)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme = ExtResource("5_jxsrd")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_fembh")
-
-[node name="Unit Status" type="TextureRect" parent="Test Unit"]
-layout_mode = 2
-texture = ExtResource("6_mu1dc")
-
-[node name="MarginContainer" type="MarginContainer" parent="Test Unit"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("5_jxsrd")
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Test Unit/MarginContainer"]
-layout_mode = 2
-
-[node name="Backline Spacer" type="Control" parent="Test Unit/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="Unit Image" type="TextureRect" parent="Test Unit/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("7_tfh8j")
-expand_mode = 1
-stretch_mode = 5
+[node name="Infantry Unit" parent="." instance=ExtResource("7_sd1lc")]
+offset_left = 1045.0
+offset_top = 1240.0
+offset_right = 1045.0
+offset_bottom = 1240.0
 
 [connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
 [connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
