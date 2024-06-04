@@ -94,7 +94,7 @@ func _ready():
 			username = OS.get_environment("USERNAME")
 		else:
 			username = "Player"
-		$Confirmation_Popup/MarginContainer/VBoxContainer/Label.text = str("Your unit has been saved to: \n C:\\Users\\thebr\\AppData\\Roaming\\Godot\\app_userdata\\PACTS \n _")
+		$Confirmation_Popup/MarginContainer/VBoxContainer/Label.text = str("Your unit has been saved to: \n C:\\Users\\",username,"\\AppData\\Roaming\\Godot\\app_userdata\\PACTS \n _")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -156,7 +156,27 @@ func _on_return_to_main_menu_pressed():
 
 
 func _on_regular_infantry_export_unit_to_file_button_pressed():
-	var regular_infantry_equipment = {
+	# Call the function to create an infantry unit and save based on inputs
+	var backend_unit_info = {
+	"createable": true,
+	"deployed": false,
+	"direction": "north",
+	"locationX": 0,
+	"locationY": 0,
+	"rendered": false
+	}
+	
+	var descriptive_data = {
+	"unitClass" : "RegularInfantry",
+	"unitName" : UnitName_Path.text,
+	"unitCallsign" : UnitCallsign_Path.text,
+	"unitBackStory" : UnitBackstory_Path.text,
+	"unitCommanderDisc" : UnitOwnerDiscord_Path.text,
+	"unitCommanderARMCO" : UnitOwnerARMCO_Path.text,
+	"unitStatus" : Unit_Status[Status_Path.selected]
+	}
+	
+	var equipment = {
 	"Equipment_01": RegularInfantryPrimaryDropdown1_path.get_item_text(RegularInfantryPrimaryDropdown1_path.selected),
 	"Equipment_02" : RegularInfantryPrimaryDropdown2_path.get_item_text(RegularInfantryPrimaryDropdown2_path.selected),
 	"Equipment_03" : RegularInfantryPrimaryDropdown3_path.get_item_text(RegularInfantryPrimaryDropdown3_path.selected),
@@ -171,8 +191,26 @@ func _on_regular_infantry_export_unit_to_file_button_pressed():
 	"Equipment_12" : "Empty"
 	}
 	
-	var savePath = str("user://",UnitName_Path.text,".txt")
-	var NewUnit = RegularInfantry.new(UnitStatus_Path.selected,UnitOwnerDiscord_Path.text,UnitOwnerARMCO_Path.text,UnitName_Path.text,UnitCallsign_Path.text,UnitBackstory_Path.text,regular_infantry_equipment)
+	var statuses  ={
+	"frontline" : 3,
+	"weakspot" : 0
+	}
+	
+	var unit_stats = {
+	"forceStrength" : 5,
+	"armor" : 0,
+	"speed" : 1,
+	"range" : 1,
+	"weightClass" : 1
+	}
+	
+	var FileName = UnitName_Path.text
+	var NewUnit = RegularInfantry.new(backend_unit_info,descriptive_data,equipment,statuses,unit_stats)
+	save_unit(FileName,NewUnit)
+
+func save_unit(FileName,NewUnit):
+	#Function to save unit to file
+	var savePath = str("user://",FileName.replace(" ",""),".txt")
 	var file = FileAccess.open(savePath, FileAccess.WRITE)
 	file.store_string(JSON.stringify(NewUnit.unit_data))
 	$Confirmation_Popup.visible = true

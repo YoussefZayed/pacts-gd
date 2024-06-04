@@ -173,14 +173,21 @@ visible = false
 layout_mode = 2
 theme = ExtResource("2_pm064")
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="Exit Settings" type="Button" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Exit Settings"
 
+[node name="Exit Game" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Exit Game"
+
 [connection signal="drag_ended" from="MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Music Hbox/Music Volume" to="." method="_on_music_volume_drag_ended"]
 [connection signal="drag_ended" from="MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/SFX HBox/SFX Volume" to="." method="_on_sfx_volume_drag_ended"]
 [connection signal="drag_ended" from="MarginContainer/TabContainer/-Audio-/MarginContainer/Audio Vbox/Dialogue HBox/Dialogue Volume" to="." method="_on_dialogue_volume_drag_ended"]
 [connection signal="item_selected" from="MarginContainer/TabContainer/-Video-/MarginContainer/Video Vbox/Video Hbox/window mode" to="." method="_on_window_mode_item_selected"]
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Exit Settings" to="." method="_on_exit_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/Exit Game" to="." method="_on_exit_game_pressed"]

@@ -56,5 +56,10 @@ func _on_window_mode_item_selected(index : int) -> void:
 		
 
 
-func _on_button_pressed():
+
+
+func _on_exit_settings_pressed():
 	$".".visible = false
+
+func _on_exit_game_pressed():
+	get_tree().quit() # exit game

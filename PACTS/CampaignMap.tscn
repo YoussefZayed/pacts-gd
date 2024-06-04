@@ -96,6 +96,117 @@ theme = ExtResource("5_jxsrd")
 theme_type_variation = &"HeaderLarge"
 text = "Zoom"
 
+[node name="GM TOOLS" type="PanelContainer" parent="UI/Corner Margin/GridContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o12cc")
+
+[node name="Button Margin" type="MarginContainer" parent="UI/Corner Margin/GridContainer/GM TOOLS"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin"]
+layout_mode = 2
+
+[node name="Load Unit" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_jxsrd")
+text = "Load Unit"
+
+[node name="Move Unit" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_jxsrd")
+text = "Move Unit"
+
+[node name="Unit action" type="Button" parent="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_jxsrd")
+text = "Unit Action"
+
+[node name="Unit Load Menu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_jxsrd")
+
+[node name="Menu Margin" type="MarginContainer" parent="UI/Unit Load Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu Container" type="PanelContainer" parent="UI/Unit Load Menu/Menu Margin"]
+layout_mode = 2
+
+[node name="Margin Vbox" type="VBoxContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Single Unit Margin" type="MarginContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin/VBoxContainer"]
+layout_mode = 2
+text = "Select Unit"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Load Single" type="Button" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin/VBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="Single Unit Margin2" type="MarginContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin2/VBoxContainer"]
+layout_mode = 2
+text = "All Units"
+horizontal_alignment = 1
+
+[node name="Load Multiple" type="Button" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin2/VBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="Single Unit Margin3" type="MarginContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin3"]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin3/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
 [node name="Settings Menu" parent="UI" instance=ExtResource("8_erx8s")]
 visible = false
 
@@ -152,3 +263,7 @@ stretch_mode = 5
 
 [connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Return to main menu" to="." method="_on_return_to_main_menu_pressed"]
 [connection signal="pressed" from="UI/Corner Margin/GridContainer/PanelContainer/Button Margin/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/Corner Margin/GridContainer/GM TOOLS/Button Margin/VBoxContainer/Load Unit" to="." method="_on_load_unit_pressed"]
+[connection signal="pressed" from="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin/VBoxContainer/Load Single" to="." method="_on_load_single_pressed"]
+[connection signal="pressed" from="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin2/VBoxContainer/Load Multiple" to="." method="_on_load_multiple_pressed"]
+[connection signal="pressed" from="UI/Unit Load Menu/Menu Margin/Menu Container/Margin Vbox/Single Unit Margin3/VBoxContainer/Close" to="." method="_on_close_pressed"]
